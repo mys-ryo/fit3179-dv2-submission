@@ -1,0 +1,196 @@
+/* Page style. Colours follow the "colour rules" in AGENTS.md. */
+
+/* Whole page: light blue-grey background, dark text, sans-serif body font */
+body {
+  background-color: #eef2f7;
+  color: #1f2933;
+  font-family: 'Source Sans 3', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* The page stays 1128px wide (1040px of content plus 44px on each side) with one shared background colour. */
+.page {
+  width: 1128px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 72px 44px 80px 44px;
+}
+
+/* Titles and section headings: serif font and dark blue colour */
+h1, h2 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  color: #1f4e79;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Heading sizes: h1 = page title, h2 = section heading */
+h1 {
+  font-size: 38px;
+  font-weight: 700;
+  text-align: center;
+}
+
+h2 {
+  /* The question spans both columns. */
+  width: 100%;
+  text-align: left;
+  font-size: 28px;
+  font-weight: 700;
+  padding-top: 28px;
+  border-top: 2px solid #1f4e79;
+  margin-bottom: 14px;
+}
+
+/* The closing section has no chart beside its heading: centred over the two text columns, with more space below. */
+h2.centred {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* More space between the introduction and the first section line. */
+.text-columns.intro { margin-bottom: 52px; }
+
+/* Narrow introductory and closing paragraphs keep each line short. */
+p {
+  margin: 0 auto 20px auto;
+  max-width: 335px;
+}
+
+/* Subtitle under the page title */
+.subtitle {
+  font-size: 22px;
+  color: #3e4a56;
+  margin: 12px auto 32px auto;
+  max-width: 690px;   /* wide enough for each of the two sentences to stay on one line */
+  text-align: center;
+}
+
+/* Space between the sections, and around the charts */
+.section {
+  margin-bottom: 52px;
+}
+
+.figure {
+  padding-top: 18px;
+  margin-bottom: 34px;
+}
+
+/* Each chart fills its Pure.css grid column. */
+.vis {
+  width: 100%;
+}
+
+/* Vega-Embed uses inline-block; block removes the baseline gap above notes. */
+.chart-visual .vis,
+.chart-visual .vis svg,
+.chart-visual .vis canvas {
+  display: block;
+}
+
+/* Important words inside the text: semi-bold (same font) */
+strong {
+  font-weight: 600;
+}
+
+/* Small grey text under each chart (source and notes) */
+.note {
+  font-size: 15px;
+  color: #3e4a56;
+  margin: 8px 0 0;
+  max-width: 38ch;
+}
+
+/* Data sources list at the bottom */
+.sources li, .sources p {
+  font-size: 15px;
+  max-width: 52ch;
+}
+
+.sources ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 492px;
+  margin: 0 auto 48px auto;   /* more space before the author, data and AI notes */
+}
+
+.sources li {
+  margin-bottom: 8px;
+}
+
+.sources p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: #1f4e79;
+}
+
+/* The chart is on the left and its text on the right. */
+.chart-row { flex-direction: row-reverse; flex-wrap: nowrap; justify-content: flex-end; }
+.chart-row .chart-visual { margin-left: -60px; }   /* the figure's outer box starts at the section line */
+
+/* Text beside each chart is centred on the plot; notes start at the legend's left edge. */
+.chart-copy {
+  box-sizing: border-box;
+  padding-left: 84px;   /* the figure's own 60px margin plus 24px, as before on the other side */
+  width: 407px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: flex-start;
+  margin-bottom: -120px;   /* the box may be taller than the chart; it must not make the row taller */
+}
+/* The text is centred on the plot of its chart: the box is twice the distance from the top of the chart to the middle of the plot. */
+.row-tsx .chart-copy { height: 344px; }
+.row-waffle .chart-copy { height: 330px; }
+.row-choropleth .chart-copy { height: 404px; }
+.row-status .chart-copy { height: 386px; }
+.row-lollipop .chart-copy { height: 386px; }
+.row-binmap .chart-copy { height: 402px; }
+.row-year .chart-copy { height: 330px; }
+.row-symbolmap .chart-copy { height: 404px; }
+.row-slope .chart-copy { height: 346px; }
+.row-heat .chart-copy { height: 514px; }
+.row-gantt .chart-copy { height: 510px; }
+.row-stream .chart-copy { height: 498px; }
+.row-bump .chart-copy { height: 386px; }
+.chart-copy p { max-width: none; margin: 0 0 20px; }
+.chart-copy p:last-child { margin-bottom: 0; }   /* so that the text is centred without the space below the last paragraph */
+.chart-visual .note { margin-left: 60px; max-width: calc(100% - 60px); }   /* as wide as the plot: about 10 words per line */
+
+@media (max-width: 1130px) {
+  .chart-row .chart-copy, .chart-row .chart-visual { width: 100%; margin-left: 0; }
+  .chart-row .chart-copy { padding-left: 0; height: auto; margin-bottom: 20px; }
+  .chart-row { flex-direction: column-reverse; flex-wrap: wrap; }
+  .chart-visual { overflow-x: auto; }
+  .chart-visual .note { margin-left: 0; }
+}
+
+/* Opening, closing and sources: two columns of the same width as the text beside the charts,
+   with a narrow gutter, so that the two columns read as one block. */
+.text-columns { justify-content: center; }
+.text-columns .pure-u-1-2 {
+  box-sizing: border-box;
+  width: 440px;
+}
+.text-columns .pure-u-1-2:first-child { margin-right: 48px; }
+.text-columns p { max-width: none; margin: 0 0 20px; }
+.text-columns .pure-u-1-2 p:last-child { margin-bottom: 0; }   /* the space before the next section line is the section's own 48px */
+.sources.text-columns ul { max-width: none; margin: 0 0 24px; }
+.sources.text-columns li, .sources.text-columns p { max-width: none; margin-left: 0; }
+.sources a { overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+  .text-columns .pure-u-1-2 { width: 100%; margin-right: 0; }
+}
+.sources .author { max-width: none; margin: 8px 0 0; text-align: center; }
+
+/* Printing: no scroll bars inside the figures */
+@media print {
+  .chart-visual { overflow: visible; }
+  .page { width: auto; }
+}

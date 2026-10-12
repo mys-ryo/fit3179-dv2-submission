@@ -1,0 +1,222 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heat map: share of each state's yearly FrogID records that fall in each month, in five classes.",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/frogid_records_by_month_state.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "title": "Month",
+      "axis": {
+        "labelAngle": -60,
+        "labelPadding": 10,
+        "orient": "top"
+      }
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State",
+      "axis": {
+        "titleAngle": 0,
+        "titleAlign": "right",
+        "titleX": -8,
+        "titleY": -14,
+        "titleBaseline": "bottom",
+        "labelLimit": 220,
+        "ticks": false,
+        "domain": false,
+        "labelPadding": 10
+      },
+      "scale": {
+        "domain": [
+          "Northern Territory",
+          "Queensland",
+          "Western Australia",
+          "South Australia",
+          "New South Wales",
+          "Australian Capital Territory",
+          "Victoria",
+          "Tasmania",
+          " "
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white"
+      },
+      "encoding": {
+        "color": {
+          "field": "class_label",
+          "type": "nominal",
+          "title": "Share of the state's records",
+          "scale": {
+            "domain": [
+              "Under 2%",
+              "2% to 5%",
+              "5% to 10%",
+              "10% to 15%",
+              "15% or more"
+            ],
+            "range": [
+              "#a6cbec",
+              "#77a1ce",
+              "#417ab6",
+              "#125190",
+              "#092a5c"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 260,
+            "titleLimit": 300,
+            "legendX": -163,
+            "legendY": 291
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "month",
+            "type": "ordinal",
+            "title": "Month"
+          },
+          {
+            "field": "share_of_state_pct",
+            "type": "quantitative",
+            "title": "Share of state's records (%)"
+          },
+          {
+            "field": "records",
+            "type": "quantitative",
+            "title": "Records",
+            "format": ","
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.share_of_state_pct < 2 ? 'Under 2%' : datum.share_of_state_pct < 5 ? '2% to 5%' : datum.share_of_state_pct < 10 ? '5% to 10%' : datum.share_of_state_pct < 15 ? '10% to 15%' : '15% or more'",
+          "as": "class_label"
+        }
+      ],
+      "description": "Coloured cells"
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "share_of_state_pct",
+          "type": "quantitative",
+          "format": ".0f"
+        },
+        "color": {
+          "value": "white"
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.share_of_state_pct >= 15"
+        }
+      ],
+      "description": "Numbers in the cells with 15% or more"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state": " ",
+            "month": "January",
+            "note": [
+              "Frogs are often most active after rain.",
+              "Rain: wet season in the north, more in winter in the temperate south."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": -14,
+        "dy": 2,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "state",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        },
+        "color": {
+          "value": "#1f2933"
+        }
+      },
+      "description": "Annotation: when records peak"
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 12,
+    "top": 5,
+    "bottom": 5
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "title": {
+    "text": "Share of each state's FrogID records, by month",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stacked bar chart: number of listed frog types in each state, split by conservation status.",
+  "width": "container",
+  "height": 260,
+  "layer": [
+    {
+      "data": {
+        "url": "data/dcceew_status_by_state.csv"
+      },
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": [
+            "New South Wales",
+            "Queensland",
+            "Victoria",
+            "Australian Capital Territory",
+            "Western Australia",
+            "Tasmania",
+            "South Australia",
+            "Northern Territory"
+          ],
+          "title": "State",
+          "axis": {
+            "titleAngle": 0,
+            "titleAlign": "right",
+            "titleX": -8,
+            "titleY": -14,
+            "titleBaseline": "bottom",
+            "labelLimit": 220
+          }
+        },
+        "x": {
+          "field": "types",
+          "type": "quantitative",
+          "title": "Number of listed frog types",
+          "axis": {
+            "values": [
+              0,
+              5,
+              10,
+              15,
+              20,
+              25,
+              30
+            ]
+          },
+          "scale": {
+            "domain": [
+              0,
+              38
+            ],
+            "nice": false
+          }
+        },
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "title": "Conservation status",
+          "scale": {
+            "domain": [
+              "Critically Endangered",
+              "Endangered",
+              "Vulnerable",
+              "Extinct"
+            ],
+            "range": [
+              "#67000d",
+              "#e34a33",
+              "#fdae6b",
+              "#8c8c8c"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "direction": "horizontal",
+            "legendX": -160,
+            "legendY": 317
+          }
+        },
+        "order": {
+          "field": "status_rank",
+          "type": "quantitative",
+          "sort": "ascending"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "status",
+            "type": "nominal",
+            "title": "Status"
+          },
+          {
+            "field": "types",
+            "type": "quantitative",
+            "title": "Frog types"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "param": "highlight",
+            "value": 1
+          },
+          "value": 0.2
+        }
+      },
+      "params": [
+        {
+          "name": "highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "status"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "description": "Annotation: the four extinct frogs and chytrid fungus (FrogID FAQ; Threat abatement plan for chytrid fungus)",
+      "data": {
+        "values": [
+          {
+            "name": "Australian Capital Territory",
+            "types": 12.5,
+            "note": [
+              "Queensland's four extinct frogs were last",
+              "seen between 1979 and 1997. Chytrid fungus",
+              "is thought to be one of the main reasons."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "types",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "name",
+          "type": "nominal",
+          "sort": [
+            "New South Wales",
+            "Queensland",
+            "Victoria",
+            "Australian Capital Territory",
+            "Western Australia",
+            "Tasmania",
+            "South Australia",
+            "Northern Territory"
+          ]
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Listed frog types by state and conservation status",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

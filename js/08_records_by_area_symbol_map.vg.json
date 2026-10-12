@@ -1,0 +1,252 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional symbol map: FrogID records by area, circle size in four classes.",
+  "width": "container",
+  "height": 330,
+  "projection": {
+    "type": "albers",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d8d0c0",
+        "stroke": "white"
+      },
+      "description": "Grey base map of the states"
+    },
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#7b8794",
+        "strokeWidth": 0.8
+      },
+      "description": "State borders"
+    },
+    {
+      "data": {
+        "url": "data/frogid_records_by_area.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "fill": "#08519c",
+        "fillOpacity": 0.55,
+        "stroke": "white",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "records",
+          "type": "quantitative",
+          "title": "FrogID records",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              10000,
+              50000,
+              100000
+            ],
+            "range": [
+              120,
+              320,
+              650,
+              1200
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "titleLimit": 300,
+            "format": ",",
+            "direction": "horizontal",
+            "legendX": 0,
+            "legendY": 348
+          }
+        },
+        "tooltip": [
+          {
+            "field": "records",
+            "type": "quantitative",
+            "title": "FrogID records",
+            "format": ","
+          }
+        ]
+      },
+      "description": "Circles placed where the records are"
+    },
+    {
+      "data": {
+        "url": "data/cities.csv"
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "dy": -10,
+        "fontSize": 13,
+        "fontWeight": "normal",
+        "color": "#ffffff",
+        "stroke": "#ffffff",
+        "strokeWidth": 5,
+        "strokeOpacity": 0.8,
+        "opacity": 0.8,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name",
+          "type": "nominal"
+        }
+      },
+      "description": "White outline behind the city names so that they can be read over the circles",
+      "transform": [
+        {
+          "calculate": "datum.name == 'Melbourne' ? 138.4 : (datum.name == 'Adelaide' ? 132.6 : (datum.name == 'Sydney' ? 152.0 : +datum.longitude))",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "datum.name == 'Melbourne' ? -40.7 : (datum.name == 'Adelaide' ? -37.3 : (datum.name == 'Sydney' ? -34.6 : +datum.latitude))",
+          "as": "label_lat"
+        }
+      ]
+    },
+    {
+      "data": {
+        "url": "data/cities.csv"
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "dy": -10,
+        "fontSize": 13,
+        "fontWeight": "normal",
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name",
+          "type": "nominal"
+        }
+      },
+      "description": "City names as text",
+      "transform": [
+        {
+          "calculate": "datum.name == 'Melbourne' ? 138.4 : (datum.name == 'Adelaide' ? 132.6 : (datum.name == 'Sydney' ? 152.0 : +datum.longitude))",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "datum.name == 'Melbourne' ? -40.7 : (datum.name == 'Adelaide' ? -37.3 : (datum.name == 'Sydney' ? -34.6 : +datum.latitude))",
+          "as": "label_lat"
+        }
+      ]
+    },
+    {
+      "description": "Annotation: large parts of the country have no FrogID records (Australian Museum, Explore, summer 2024: 'large tracts of the country with no frog records, but we know frogs are there')",
+      "data": {
+        "values": [
+          {
+            "note": [
+              "Large parts of",
+              "the country still",
+              "have no FrogID",
+              "records, but frogs",
+              "live there."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": 70
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 1
+        }
+      }
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "FrogID records across Australia",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  },
+  "view": {
+    "stroke": null
+  }
+}

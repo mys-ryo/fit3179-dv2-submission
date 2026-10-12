@@ -1,0 +1,200 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line chart of the Threatened Frog Index: the average change in relative abundance of 28 threatened frog types, compared with 1985 (set to 100).",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/tsx_frog_index.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Year",
+      "axis": {
+        "format": "d",
+        "tickMinStep": 5
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#2e7d32",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "y": {
+          "field": "index_pct",
+          "type": "quantitative",
+          "title": "Monitored frog index (1985 = 100)",
+          "axis": {
+            "titleX": -52
+          }
+        }
+      },
+      "description": "Green line: index by year"
+    },
+    {
+      "description": "Invisible dots on every year, so that the tooltip works along the whole line",
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150,
+        "opacity": 0.01,
+        "color": "#2e7d32"
+      },
+      "encoding": {
+        "y": {
+          "field": "index_pct",
+          "type": "quantitative",
+          "axis": {}
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "quantitative",
+            "format": "d",
+            "title": "Year"
+          },
+          {
+            "field": "index_pct",
+            "type": "quantitative",
+            "title": "Index (%)"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 1985 || datum.year == 2022"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 70,
+        "color": "#2e7d32"
+      },
+      "encoding": {
+        "y": {
+          "field": "index_pct",
+          "type": "quantitative",
+          "axis": {}
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "quantitative",
+            "format": "d",
+            "title": "Year"
+          },
+          {
+            "field": "index_pct",
+            "type": "quantitative",
+            "title": "Index (%)"
+          }
+        ]
+      },
+      "description": "Dots at 1985 and 2022"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 1992,
+            "index_pct": 61,
+            "note": [
+              "Chytrid fungus, a disease that spread",
+              "in the late 1980s and 1990s,",
+              "collapsed many frog populations"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "index_pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      },
+      "description": "Annotation: chytrid fungus (cause of the fall in the late 1980s and 1990s)"
+    },
+    {
+      "description": "Annotation: what the index is (an average)",
+      "data": {
+        "values": [
+          {
+            "year": 1996,
+            "index_pct": 88,
+            "note": [
+              "Average of 28 kinds of threatened frogs,",
+              "not a count of all frogs."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "index_pct",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Threatened Frog Index, 1985 to 2022",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

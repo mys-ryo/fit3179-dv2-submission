@@ -1,0 +1,215 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Streamgraph: FrogID records by month for the four most recorded species, all years added together.",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/frogid_species_by_month.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "title": "Month",
+      "axis": {
+        "labelAngle": -60,
+        "orient": "top"
+      }
+    }
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone",
+        "opacity": 1
+      },
+      "encoding": {
+        "y": {
+          "aggregate": "sum",
+          "field": "records",
+          "type": "quantitative",
+          "stack": "center",
+          "title": "Records per month",
+          "axis": {
+            "values": [
+              0,
+              20000,
+              40000,
+              60000,
+              80000,
+              100000,
+              120000
+            ],
+            "format": ",.0f",
+            "grid": true,
+            "domain": false,
+            "ticks": false,
+            "titleX": -76
+          }
+        },
+        "color": {
+          "field": "species",
+          "type": "nominal",
+          "title": "Frog species",
+          "scale": {
+            "domain": [
+              "Common Eastern Froglet",
+              "Striped Marsh Frog",
+              "Eastern Dwarf Tree Frog",
+              "Emerald-spotted Tree Frog"
+            ],
+            "range": [
+              "#8c510a",
+              "#b59b00",
+              "#cc79a7",
+              "#1a1a1a"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "symbolType": "square",
+            "titleLimit": 300,
+            "direction": "horizontal",
+            "legendX": -90,
+            "legendY": 285,
+            "columns": 2
+          }
+        },
+        "tooltip": [
+          {
+            "field": "species",
+            "type": "nominal",
+            "title": "Frog"
+          },
+          {
+            "field": "month",
+            "type": "ordinal",
+            "title": "Month"
+          },
+          {
+            "field": "records",
+            "type": "quantitative",
+            "title": "Records",
+            "format": ","
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "param": "highlight",
+            "value": 1
+          },
+          "value": 0.25
+        }
+      },
+      "description": "Stacked areas (stack: center)",
+      "params": [
+        {
+          "name": "highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "species"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "description": "Annotation: many frogs call in the breeding season (FrogID FAQ)",
+      "data": {
+        "values": [
+          {
+            "month": "January",
+            "value": 112000,
+            "note": [
+              "Many frogs call in spring and summer, the breeding",
+              "season; others call in autumn, winter or all year."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+          ]
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 1
+        }
+      }
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Monthly FrogID records of the four most recorded frogs",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

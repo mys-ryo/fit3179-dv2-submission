@@ -1,0 +1,222 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Lollipop chart: the 10 listed frogs with the most records in the Atlas of Living Australia.",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/ala_threatened_species_records.csv"
+  },
+  "encoding": {
+    "y": {
+      "field": "common_name",
+      "type": "nominal",
+      "sort": [
+        "Green and Golden Bell Frog",
+        "Southern Bell Frog",
+        "Giant Barred Frog",
+        "Sloane's Froglet",
+        "Booroolong Frog",
+        "Northern Heath Frog",
+        "Baw Baw Frog",
+        "Stuttering Frog",
+        "Fleay's Frog",
+        "Pouched Frog"
+      ],
+      "title": "Listed frog",
+      "axis": {
+        "titleAngle": 0,
+        "titleAlign": "right",
+        "titleX": -8,
+        "titleY": -14,
+        "titleBaseline": "bottom",
+        "labelLimit": 240
+      }
+    },
+    "x": {
+      "field": "records",
+      "type": "quantitative",
+      "title": "Records",
+      "axis": {
+        "format": ",.0f",
+        "values": [
+          0,
+          8000,
+          16000,
+          24000,
+          32000,
+          40000,
+          48000
+        ]
+      },
+      "scale": {
+        "domain": [
+          0,
+          52000
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "color": "#bdbdbd"
+      },
+      "encoding": {
+        "x": {
+          "field": "zero",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "records"
+        }
+      },
+      "description": "Grey stick from zero to the number of records"
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150,
+        "opacity": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "title": "Conservation status",
+          "scale": {
+            "domain": [
+              "Critically Endangered",
+              "Endangered",
+              "Vulnerable"
+            ],
+            "range": [
+              "#67000d",
+              "#e34a33",
+              "#fdae6b"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "direction": "horizontal",
+            "legendX": -170,
+            "legendY": 316
+          }
+        },
+        "tooltip": [
+          {
+            "field": "common_name",
+            "type": "nominal",
+            "title": "Frog"
+          },
+          {
+            "field": "scientific_name",
+            "type": "nominal",
+            "title": "Scientific name"
+          },
+          {
+            "field": "status",
+            "type": "nominal",
+            "title": "Status"
+          },
+          {
+            "field": "records",
+            "type": "quantitative",
+            "title": "Records",
+            "format": ","
+          }
+        ]
+      },
+      "description": "Coloured dot (colour = status)"
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 13,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "text": {
+          "field": "records",
+          "type": "quantitative",
+          "format": ","
+        }
+      },
+      "description": "Number of records as text"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "common_name": "Northern Heath Frog",
+            "records": 15000,
+            "note": [
+              "Green and Golden Bell Frog:",
+              "once common on the coast,",
+              "now in about 10% of its range"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "records",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "common_name",
+          "type": "nominal",
+          "sort": [
+            "Green and Golden Bell Frog",
+            "Southern Bell Frog",
+            "Giant Barred Frog",
+            "Sloane's Froglet",
+            "Booroolong Frog",
+            "Northern Heath Frog",
+            "Baw Baw Frog",
+            "Stuttering Frog",
+            "Fleay's Frog",
+            "Pouched Frog"
+          ]
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      },
+      "description": "Annotation: Green and Golden Bell Frog"
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Listed frogs with the most records",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

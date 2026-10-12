@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Are Australia's Frogs Disappearing?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Import Vega & Vega-Lite (same versions as the Week 8 map examples) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+  <!-- Google fonts: Fraunces for headings, Source Sans 3 for text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- Introduction: title, subtitle and two short paragraphs. pure-g / pure-u-1-1 is the Pure.css grid (one full-width column). -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>Are Australia's Frogs Disappearing?</h1>
+        <p class="subtitle">Thousands of people record frogs on their phones.<br>What do those records tell us, and what do they hide?</p>
+      </div>
+    </div>
+    <div class="pure-g text-columns intro">
+      <div class="pure-u-1-2">
+        <p>Frogs live in rainforests and wetlands all over the world, including Malaysia, where many of us hear them after the rain. Many frogs need both water and land, so they react quickly when their home changes. That is why scientists watch frogs closely.</p>
+      </div>
+      <div class="pure-u-1-2">
+        <p>This page looks at <strong>Australia</strong>, where records of frogs and a national list of threatened frogs are both open to the public. Do the records show that frogs are doing well, or is the picture more fragile?</p>
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section">
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>How much have threatened frogs declined?</h2>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-tsx">
+        <div class="pure-u-1-3 chart-copy">
+          <p>Scientists follow <strong>28 kinds of</strong> threatened or near-threatened <strong>frogs</strong>, mostly in eastern Australia.</p>
+          <p>Between 1985 and 2022, their numbers <strong>fell by about 97%</strong>, on average.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Line chart: Threatened Frog Index (js/01_tsx_index_line.vg.json) -->
+          <div id="tsx" class="vis"></div>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-waffle">
+        <div class="pure-u-1-3 chart-copy">
+          <p>Australia keeps an official list of species at risk of extinction. It names <strong>53 frog types</strong> (species or subspecies), which we call listed frogs. <strong>Four are already extinct</strong>.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Waffle chart: one square per listed frog type, by status (js/02_status_waffle.vg.json) -->
+          <div id="waffle" class="vis"></div>
+          <p class="note">Click a status in the legend to highlight it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>Where are listed frogs recorded?</h2>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-choropleth">
+        <div class="pure-u-1-3 chart-copy">
+          <p>Listed frogs are not spread evenly. The map shows what share of the frog species recorded in each state are on the threatened list.</p>
+          <p><strong>The south-east has the highest shares</strong>. Western Australia, South Australia and the Northern Territory have the lowest.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Choropleth map: threatened share of frog species by state (js/03_state_share_choropleth.vg.json) -->
+          <div id="choropleth" class="vis"></div>
+          <p class="note">The Australian Capital Territory (19%) is too small to see.</p>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-status">
+        <div class="pure-u-1-3 chart-copy">
+          <p>In numbers, New South Wales and Queensland have the most listed frog types, <strong>29 and 27</strong>, and <strong>all four extinct types occur in Queensland</strong>.</p>
+          <p>Victoria has 11 and the Australian Capital Territory 6. Each of the other four states has three or fewer.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Stacked bar chart: listed frog types by state and status (js/04_status_by_state_stacked_bar.vg.json) -->
+          <div id="status" class="vis"></div>
+          <p class="note">Click a status in the legend to highlight it.</p>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-binmap">
+        <div class="pure-u-1-3 chart-copy">
+          <p>A finer map shows the same pattern: listed frogs are <strong>concentrated in the south-east</strong>.</p>
+          <p>In parts of it, <strong>more than one in five</strong> records are of listed frogs. In most squares, <strong>less than 1%</strong> are.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Bin map: threatened share of frog records in 100 km squares (js/06_threatened_share_bin_map.vg.json) -->
+          <div id="binmap" class="vis"></div>
+          <p class="note">Each square is 100 by 100 kilometres.<br>Shares count records, not species.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section">
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>Which listed frogs are recorded most often?</h2>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-lollipop">
+        <div class="pure-u-1-3 chart-copy">
+          <p>Records of listed frogs are very uneven: <strong>two species</strong> make up <strong>about six in ten</strong> of all records in the Atlas of Living Australia.</p>
+          <p>The next eight frogs each have fewer than 6,500 records.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Lollipop chart: listed frogs with the most records (js/05_threatened_records_lollipop.vg.json) -->
+          <div id="lollipop" class="vis"></div>
+          <p class="note">Extinct frogs are not shown.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>Can sightings tell us the story?</h2>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-year">
+        <div class="pure-u-1-3 chart-copy">
+          <p>FrogID is a phone app made by the Australian Museum. Since 2017 it has collected <strong>more than a million records</strong>, but <strong>more records do not always mean more frogs</strong>: more people can take part.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Line chart: FrogID records per year (js/07_records_per_year_line.vg.json) -->
+          <div id="year" class="vis"></div>
+          <p class="note">The first and last years are partial.</p>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-symbolmap">
+        <div class="pure-u-1-3 chart-copy">
+          <p>Records <strong>cluster around big cities</strong> such as Sydney, Melbourne and Brisbane. This may partly reflect where people use FrogID.</p>
+          <p>The two largest circles, around Sydney and Melbourne, hold <strong>more than a third</strong> of the records shown.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Proportional symbol map: FrogID records by area (js/08_records_by_area_symbol_map.vg.json) -->
+          <div id="symbolmap" class="vis"></div>
+          <p class="note">Each circle covers an area about 300 kilometres across.</p>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-slope">
+        <div class="pure-u-1-3 chart-copy">
+          <p>Between 2018 and 2023, <strong>Victoria's share rose from 12% to 21%</strong>, while Western Australia and the Northern Territory lost more than half of theirs.</p>
+          <p>This may reflect where people record, rather than where frogs live.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Slope chart: each state's share of FrogID records, 2018 and 2023 (js/09_state_share_slope.vg.json) -->
+          <div id="slope" class="vis"></div>
+          <p class="note">Each label shows the state's share of all FrogID records.</p>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-bump">
+        <div class="pure-u-1-3 chart-copy">
+          <p>The ranking of the most recorded frogs barely changed. The Common Eastern Froglet was <strong>first in all six years</strong>, while <strong>Verreaux's Frog</strong> rose from last of the ten to sixth in 2023.</p>
+          <p>A rank shows how often a frog is recorded compared with other frogs, not how many frogs there are.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Bump chart: rank of the 10 most recorded species (js/13_species_rank_bump.vg.json) -->
+          <div id="bump" class="vis"></div>
+          <p class="note">Rank 1 is the most recorded frog, in complete years only.<br>Click a line colour in the legend to highlight it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2>Which frogs call when?</h2>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-heat">
+        <div class="pure-u-1-3 chart-copy">
+          <p>Records depend on the season as well as on the frogs. In most states they <strong>peak in November</strong>, in spring.</p>
+          <p>Western Australia peaks in August and the Northern Territory in January.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Heat map: share of each state's records by month (js/10_month_state_heat_map.vg.json) -->
+          <div id="heat" class="vis"></div>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-gantt">
+        <div class="pure-u-1-3 chart-copy">
+          <p><strong>Nearly half</strong> of all FrogID records are made in spring (September to November), which hides differences between frogs.</p>
+          <p>The frogs fall into <strong>three groups</strong>: winter, spring and summer callers.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Gantt chart: months when each frog is recorded more than usual (js/11_calling_season_gantt.vg.json) -->
+          <div id="gantt" class="vis"></div>
+          <p class="note">Each bar marks months with more records than expected.<br>A frog with two bars has two separate periods.</p>
+        </div>
+      </div>
+      <div class="pure-g figure chart-row layout-a row-stream">
+        <div class="pure-u-1-3 chart-copy">
+          <p>This chart shows raw monthly record counts for the four most recorded frogs. Unlike the previous chart, they are <strong>not adjusted</strong> for the months in which people record most.</p>
+          <p><strong>All four frogs peak in November</strong>, so the counts partly reflect when people record, not only when each frog calls.</p>
+        </div>
+        <div class="pure-u-2-3 chart-visual">
+          <!-- Streamgraph: records by month for four species (js/12_species_month_streamgraph.vg.json) -->
+          <div id="stream" class="vis"></div>
+          <p class="note">Read a band's thickness.<br>Click a species in the legend to highlight it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section">
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <h2 class="centred">What does it mean?</h2>
+        </div>
+      </div>
+      <div class="pure-g text-columns">
+        <div class="pure-u-1-2">
+          <p>Are Australia's frogs disappearing? <strong>For the threatened frogs that scientists follow, the answer is yes: their numbers have fallen sharply.</strong> For frogs in general, records alone cannot tell us.</p>
+          <p>Listed frogs are not spread evenly. <strong>Their records are concentrated in the south-east</strong>, and two species make up most of them.</p>
+        </div>
+        <div class="pure-u-1-2">
+          <p>Sightings are useful, but they <strong>reflect both the frogs and where and when people record</strong>. <strong>Counting frogs carefully</strong>, as the Threatened Frog Index does, is what shows the decline.</p>
+          <p>This is worth remembering in Malaysia too: recordings from many people are valuable, but their number alone does not show whether frogs are doing well.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data sources, author, date and the use of AI -->
+    <div class="pure-g sources">
+      <div class="pure-u-1-1">
+        <h2 class="centred">Data sources and notes</h2>
+      </div>
+    </div>
+    <div class="pure-g text-columns sources">
+      <div class="pure-u-1-2">
+        <ul>
+          <li><strong>FrogID</strong>, Australian Museum (dataset 7.0, via the Atlas of Living Australia, data resource dr14760): frog records by year, month, state, species and area. Rowley, J. J. L. &amp; Callaghan, C. T. (2020). Licence Creative Commons Attribution-NonCommercial 4.0 International.<br><a href="https://www.frogid.net.au/science/map-and-data/" target="_blank">https://www.frogid.net.au/science/map-and-data/</a></li>
+          <li><strong>Atlas of Living Australia</strong>: records of all frogs (all contributors), for the maps and the most recorded listed frogs.<br><a href="https://www.ala.org.au/" target="_blank">https://www.ala.org.au/</a></li>
+          <li><strong>Department of Climate Change, Energy, the Environment and Water</strong>: Threatened Species State Lists, 28 August 2026 (53 frog types). Licence Creative Commons Attribution 3.0 Australia.<br><a href="https://data.gov.au/data/dataset/threatened-species-state-lists" target="_blank">https://data.gov.au/data/dataset/threatened-species-state-lists</a></li>
+          <li><strong>Threatened Species Index</strong>, Terrestrial Ecosystem Research Network and The University of Queensland: Threatened Frog Index 2025. Licence Creative Commons Attribution 4.0 International.<br><a href="https://tsx.org.au/visualising-the-index/the-threatened-frog-index-2025/" target="_blank">https://tsx.org.au/visualising-the-index/the-threatened-frog-index-2025/</a></li>
+          <li><strong>Natural Earth</strong>: state and territory boundaries (public domain).<br><a href="https://www.naturalearthdata.com/" target="_blank">https://www.naturalearthdata.com/</a></li>
+        </ul>
+      </div>
+      <div class="pure-u-1-2">
+        <ul>
+          <li><strong>Sources of the facts in the charts</strong>:<br>
+            Chytrid fungus and the continuing decline: Threatened Frog Index 2025 (above).<br>
+            When frogs call and why frogs are lost (breeding season, chytrid fungus): FrogID frequently asked questions<br><a href="https://www.frogid.net.au/participate/faq/" target="_blank">https://www.frogid.net.au/participate/faq/</a><br>
+            When the extinct frogs were last seen: Australian Government, Threat abatement plan for chytrid fungus (2016)<br><a href="https://www.dcceew.gov.au/sites/default/files/documents/tap-chytrid-fungus-2016.pdf" target="_blank">https://www.dcceew.gov.au/sites/default/files/documents/tap-chytrid-fungus-2016.pdf</a><br>
+            Where FrogID has no records: Australian Museum, Explore (summer 2024), FrogID<br><a href="https://australian.museum/publications/explore_summer2024/frogid/" target="_blank">https://australian.museum/publications/explore_summer2024/frogid/</a><br>
+            Common Eastern Froglet: FrogID species profile<br><a href="https://www.frogid.net.au/frogs/crinia-signifera/" target="_blank">https://www.frogid.net.au/frogs/crinia-signifera/</a><br>
+            Gastric-brooding frog: Wikipedia<br><a href="https://en.wikipedia.org/wiki/Gastric-brooding_frog" target="_blank">https://en.wikipedia.org/wiki/Gastric-brooding_frog</a><br>
+            Records in 2020: Australian Museum, &ldquo;Increase in citizen scientists during COVID-19&rdquo;<br><a href="https://australian.museum/about/organisation/media-centre/increase-citizen-scientists-during-covid-19/" target="_blank">https://australian.museum/about/organisation/media-centre/increase-citizen-scientists-during-covid-19/</a><br>
+            When it rains: Bureau of Meteorology, Australian climate zones<br><a href="https://www.bom.gov.au/resources/learn-and-explore/climate-knowledge-centre/australian-climate-zones" target="_blank">https://www.bom.gov.au/resources/learn-and-explore/climate-knowledge-centre/australian-climate-zones</a><br>
+            Green and Golden Bell Frog: New South Wales Government, Bell frogs<br><a href="https://environment.nsw.gov.au/topics/animals-and-plants/native-animals/native-animal-facts/amphibians/frogs/bell-frogs" target="_blank">https://environment.nsw.gov.au/topics/animals-and-plants/native-animals/native-animal-facts/amphibians/frogs/bell-frogs</a></li>
+          <li>Charts: Vega-Lite. Layout: Pure.css. Fonts: Fraunces and Source Sans 3 (Google Fonts).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pure-g text-columns sources">
+      <div class="pure-u-1-2">
+        <p><strong>Notes on the data:</strong> Verreaux's Frog is left out because only one of its subspecies is listed. A species needs at least 5 records in a state, and a map square at least 50 records. Records of threatened frogs may be rounded to about 11 kilometres (FrogID). A frog type in several states is counted in each state.</p>
+        <p><strong>Data processing:</strong> The data were downloaded on 5 October 2026 and summed up with Python scripts (see the scripts folder) before they were charted.</p>
+      </div>
+      <div class="pure-u-1-2">
+        <p><strong>Use of artificial intelligence:</strong> Claude helped write the code, advised on processing the data, and helped proofread the English text. The author chose the topic, story, charts and design, and did the final checks.</p>
+      </div>
+    </div>
+    <div class="pure-g sources">
+      <div class="pure-u-1-1">
+        <p class="author"><strong>Author:</strong> Ryoma Kano (34475184). Date: October 2026.</p>
+      </div>
+    </div>
+
+  </div> <!-- end page -->
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

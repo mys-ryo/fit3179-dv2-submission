@@ -1,0 +1,254 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Slope chart: each state's share of all FrogID records in 2018 and 2023. The three states with the largest change are highlighted.",
+  "width": "container",
+  "height": 260,
+  "layer": [
+    {
+      "data": {
+        "url": "data/frogid_state_share.csv"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year",
+          "axis": {
+            "labelAngle": 0,
+            "orient": "bottom",
+            "domain": false,
+            "ticks": false,
+            "labelFontSize": 13
+          },
+          "scale": {
+            "padding": 0.62
+          }
+        },
+        "y": {
+          "field": "share_pct",
+          "type": "quantitative",
+          "title": "State",
+          "axis": {
+            "labels": false,
+            "ticks": false,
+            "domain": false,
+            "grid": false,
+            "titleAngle": 0,
+            "titleAlign": "right",
+            "titleX": 116,
+            "titleY": 6,
+            "titleBaseline": "bottom",
+            "minExtent": 10
+          },
+          "scale": {
+            "domain": [
+              -3,
+              45.5
+            ]
+          }
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "title": "Line colour",
+          "scale": {
+            "domain": [
+              "Largest change in share",
+              "Other states"
+            ],
+            "range": [
+              "#08519c",
+              "#bdbdbd"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "direction": "horizontal",
+            "titleLimit": 300,
+            "legendX": -78,
+            "legendY": 311
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "share_pct",
+            "type": "quantitative",
+            "title": "Share of records (%)"
+          },
+          {
+            "field": "records",
+            "type": "quantitative",
+            "title": "Records",
+            "format": ","
+          }
+        ],
+        "detail": {
+          "field": "state",
+          "type": "nominal"
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "line",
+            "strokeWidth": 3
+          },
+          "encoding": {
+            "opacity": {
+              "condition": {
+                "test": "datum.group != 'Other states'",
+                "value": 1
+              },
+              "value": 0.85
+            },
+            "size": {
+              "condition": {
+                "test": "datum.group != 'Other states'",
+                "value": 5
+              },
+              "value": 1.5
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 60,
+            "opacity": 1
+          }
+        }
+      ],
+      "description": "Lines and dots (colour = group of states)"
+    },
+    {
+      "data": {
+        "url": "data/frogid_state_share_labels.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2018"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -16,
+        "fontSize": 13
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "label_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Largest change in share",
+              "Other states"
+            ],
+            "range": [
+              "#08519c",
+              "#3e4a56"
+            ]
+          },
+          "legend": null
+        }
+      },
+      "description": "Labels on the left (2018)"
+    },
+    {
+      "data": {
+        "url": "data/frogid_state_share_labels.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2023"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 16,
+        "fontSize": 13
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "label_y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Largest change in share",
+              "Other states"
+            ],
+            "range": [
+              "#08519c",
+              "#3e4a56"
+            ]
+          },
+          "legend": null
+        }
+      },
+      "description": "Labels on the right (2023)"
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 66,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Share of all FrogID records, by state, 2018 and 2023",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

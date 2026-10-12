@@ -1,0 +1,33 @@
+name,status,types,status_rank
+New South Wales,Critically Endangered,5,0
+New South Wales,Endangered,13,1
+New South Wales,Vulnerable,11,2
+New South Wales,Extinct,0,3
+Queensland,Critically Endangered,11,0
+Queensland,Endangered,5,1
+Queensland,Vulnerable,7,2
+Queensland,Extinct,4,3
+Victoria,Critically Endangered,2,0
+Victoria,Endangered,5,1
+Victoria,Vulnerable,4,2
+Victoria,Extinct,0,3
+Australian Capital Territory,Critically Endangered,2,0
+Australian Capital Territory,Endangered,1,1
+Australian Capital Territory,Vulnerable,3,2
+Australian Capital Territory,Extinct,0,3
+Western Australia,Critically Endangered,1,0
+Western Australia,Endangered,0,1
+Western Australia,Vulnerable,2,2
+Western Australia,Extinct,0,3
+Tasmania,Critically Endangered,0,0
+Tasmania,Endangered,0,1
+Tasmania,Vulnerable,1,2
+Tasmania,Extinct,0,3
+South Australia,Critically Endangered,0,0
+South Australia,Endangered,0,1
+South Australia,Vulnerable,1,2
+South Australia,Extinct,0,3
+Northern Territory,Critically Endangered,0,0
+Northern Territory,Endangered,0,1
+Northern Territory,Vulnerable,1,2
+Northern Territory,Extinct,0,3

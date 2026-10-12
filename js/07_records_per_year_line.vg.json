@@ -1,0 +1,125 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Line chart: number of FrogID records in each year. 2017 and 2024 are partial years.",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/frogid_records_by_year.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "records",
+      "type": "quantitative",
+      "title": "FrogID records per year",
+      "axis": {
+        "format": ",.0f",
+        "titleX": -76
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#08519c",
+        "strokeWidth": 2.5
+      },
+      "description": "Line"
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 90,
+        "color": "#08519c",
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "records",
+            "type": "quantitative",
+            "format": ",",
+            "title": "FrogID records"
+          },
+          {
+            "field": "complete_year",
+            "type": "nominal",
+            "title": "Whole year?"
+          }
+        ]
+      },
+      "description": "Dots"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": "2020",
+            "records": 100000,
+            "note": [
+              "During the pandemic, more people",
+              "recorded frogs at home"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": 12,
+        "dy": 6,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "records",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      },
+      "description": "Annotation: COVID-19 (2020)"
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "FrogID records per year, 2017 to 2024",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

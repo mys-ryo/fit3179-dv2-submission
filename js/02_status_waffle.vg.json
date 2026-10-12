@@ -1,0 +1,152 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Waffle chart: one square for each of the 53 listed frog types, coloured by conservation status.",
+  "width": "container",
+  "height": 260,
+  "layer": [
+    {
+      "data": {
+        "url": "data/dcceew_status_waffle.csv"
+      },
+      "mark": {
+        "type": "square",
+        "size": 1400,
+        "opacity": 1,
+        "filled": true,
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "column",
+          "type": "ordinal",
+          "axis": null
+        },
+        "y": {
+          "field": "row",
+          "type": "ordinal",
+          "axis": null,
+          "sort": "ascending"
+        },
+        "color": {
+          "field": "status_label",
+          "type": "nominal",
+          "title": "Conservation status (number of frog types)",
+          "scale": {
+            "domain": [
+              "Critically Endangered (18)",
+              "Endangered (15)",
+              "Vulnerable (16)",
+              "Extinct (4)"
+            ],
+            "range": [
+              "#67000d",
+              "#e34a33",
+              "#fdae6b",
+              "#8c8c8c"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "titleLimit": 300,
+            "direction": "horizontal",
+            "legendX": 13,
+            "legendY": 275
+          }
+        },
+        "tooltip": [
+          {
+            "field": "scientific_name",
+            "type": "nominal",
+            "title": "Frog type"
+          },
+          {
+            "field": "status",
+            "type": "nominal",
+            "title": "Status"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "param": "highlight",
+            "value": 1
+          },
+          "value": 0.2
+        }
+      },
+      "params": [
+        {
+          "name": "highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "status_label"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "column": "2",
+            "row": "5",
+            "note": [
+              "Two extinct gastric-brooding frogs raised their",
+              "young in the mother's stomach."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 56,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "color": "#1f2933",
+        "dy": -4
+      },
+      "encoding": {
+        "x": {
+          "field": "column",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "row",
+          "type": "ordinal",
+          "sort": "ascending"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      },
+      "description": "Note beside the grey squares"
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  },
+  "background": null,
+  "padding": {
+    "left": 47,
+    "right": 0,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Listed frog types by conservation status",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bin map: share of frog records that are of listed frogs, in 100 by 100 kilometre squares.",
+  "width": "container",
+  "height": 330,
+  "projection": {
+    "type": "albers",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d8d0c0",
+        "stroke": "white"
+      },
+      "transform": [
+        {
+          "calculate": "'Too few records to compare: fewer than 50 frog records in ' + datum.properties.name",
+          "as": "note"
+        }
+      ],
+      "encoding": {
+        "tooltip": {
+          "field": "note",
+          "type": "nominal",
+          "title": "Note"
+        }
+      },
+      "description": "Grey base map of the states (no-data areas)"
+    },
+    {
+      "data": {
+        "url": "data/ala_threatened_share_bins.csv"
+      },
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 0.4
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "longitude2"
+        },
+        "latitude2": {
+          "field": "latitude2"
+        },
+        "color": {
+          "field": "class_label",
+          "type": "nominal",
+          "title": "Threatened species' share of frog records",
+          "scale": {
+            "domain": [
+              "Under 1%",
+              "1% to 5%",
+              "5% to 20%",
+              "20% or more"
+            ],
+            "range": [
+              "#b4aeda",
+              "#8c6fbc",
+              "#5c2f97",
+              "#2a0058"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 260,
+            "titleLimit": 300,
+            "legendX": 0,
+            "legendY": 355
+          }
+        },
+        "tooltip": [
+          {
+            "field": "all_records",
+            "type": "quantitative",
+            "title": "All frog records",
+            "format": ","
+          },
+          {
+            "field": "threatened_records",
+            "type": "quantitative",
+            "title": "Threatened species records",
+            "format": ","
+          },
+          {
+            "field": "share_threatened",
+            "type": "quantitative",
+            "title": "Threatened share (%)"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.share_threatened < 1 ? 'Under 1%' : datum.share_threatened < 5 ? '1% to 5%' : datum.share_threatened < 20 ? '5% to 20%' : '20% or more'",
+          "as": "class_label"
+        }
+      ],
+      "description": "Coloured squares"
+    },
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "#7b8794",
+        "strokeWidth": 0.8
+      },
+      "description": "State borders"
+    },
+    {
+      "data": {
+        "url": "data/state_labels.csv"
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "color": "#ffffff",
+        "stroke": "#ffffff",
+        "strokeWidth": 5,
+        "strokeOpacity": 0.8,
+        "opacity": 0.8,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name",
+          "type": "nominal"
+        }
+      },
+      "description": "White outline behind the text so that it can be read over the squares"
+    },
+    {
+      "data": {
+        "url": "data/state_labels.csv"
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name",
+          "type": "nominal"
+        }
+      },
+      "description": "State names"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Lord Howe Island",
+            "longitude": 159.08,
+            "latitude": -31.55
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 16,
+        "fontSize": 13,
+        "color": "#ffffff",
+        "stroke": "#ffffff",
+        "strokeWidth": 5,
+        "strokeOpacity": 0.8,
+        "opacity": 0.8,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name",
+          "type": "nominal"
+        }
+      },
+      "description": "White outline behind the text so that it can be read over the squares"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "name": "Lord Howe Island",
+            "longitude": 159.08,
+            "latitude": -31.55
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "dx": 0,
+        "dy": 16,
+        "fontSize": 13,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "name",
+          "type": "nominal"
+        }
+      },
+      "description": "Text note: Lord Howe Island"
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Listed frogs' share of frog records, by 100 kilometre square",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

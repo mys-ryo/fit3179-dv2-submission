@@ -1,0 +1,188 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Choropleth map: share of the frog species recorded in each state that are on the national threatened list, in four classes.",
+  "width": "container",
+  "height": 330,
+  "projection": {
+    "type": "albers",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0,
+      0
+    ]
+  },
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_10m_admin_1_states_provinces"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.name",
+          "from": {
+            "data": {
+              "url": "data/ala_listed_share_by_state.csv"
+            },
+            "key": "name",
+            "fields": [
+              "species_recorded",
+              "listed_species_recorded",
+              "share_pct"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.share_pct < 5 ? 'Under 5%' : datum.share_pct < 10 ? '5% to 10%' : datum.share_pct < 20 ? '10% to 20%' : '20% or more'",
+          "as": "class_label"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#7b8794",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "color": {
+          "field": "class_label",
+          "type": "nominal",
+          "title": "Threatened share of recorded frog species",
+          "scale": {
+            "domain": [
+              "Under 5%",
+              "5% to 10%",
+              "10% to 20%",
+              "20% or more"
+            ],
+            "range": [
+              "#b4aeda",
+              "#8c6fbc",
+              "#5c2f97",
+              "#2a0058"
+            ]
+          },
+          "legend": {
+            "orient": "none",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 260,
+            "titleLimit": 300,
+            "legendX": 0,
+            "legendY": 368
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "species_recorded",
+            "type": "quantitative",
+            "title": "Frog species recorded"
+          },
+          {
+            "field": "listed_species_recorded",
+            "type": "quantitative",
+            "title": "Of which on the threatened list"
+          },
+          {
+            "field": "share_pct",
+            "type": "quantitative",
+            "title": "Share (%)",
+            "format": ".1f"
+          }
+        ]
+      },
+      "description": "States coloured by class"
+    },
+    {
+      "data": {
+        "url": "data/state_labels.csv"
+      },
+      "transform": [
+        {
+          "lookup": "name",
+          "from": {
+            "data": {
+              "url": "data/ala_listed_share_by_state.csv"
+            },
+            "key": "name",
+            "fields": [
+              "share_pct"
+            ]
+          }
+        },
+        {
+          "calculate": "[datum.name, format(datum.share_pct, '.0f') + '%']",
+          "as": "label"
+        },
+        {
+          "calculate": "datum.name == 'New South Wales' ? +datum.longitude + 1.4 : (datum.name == 'Victoria' ? 144.0 : +datum.longitude)",
+          "as": "label_lon"
+        },
+        {
+          "calculate": "datum.name == 'Victoria' ? -36.2 : +datum.latitude",
+          "as": "label_lat"
+        },
+        {
+          "calculate": "datum.name == 'Victoria' ? 0 : +datum.outside",
+          "as": "label_outside"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "lineHeight": 13,
+        "fontWeight": "normal"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.label_outside == 0 && datum.share_pct >= 10",
+            "value": "#ffffff"
+          },
+          "value": "#1f2933"
+        }
+      },
+      "description": "State names and shares (white text on the dark classes)"
+    }
+  ],
+  "title": {
+    "text": "Share of recorded frog species that are listed, by state",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Gantt chart: months in which each of the 10 most recorded frogs is recorded more often than usual for that month.",
+  "width": "container",
+  "height": 260,
+  "layer": [
+    {
+      "data": {
+        "url": "data/frogid_calling_seasons.csv"
+      },
+      "mark": {
+        "type": "bar",
+        "height": {
+          "band": 0.6
+        },
+        "color": "#08519c",
+        "opacity": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "species",
+          "type": "nominal",
+          "sort": [
+            "Common Eastern Froglet",
+            "Ewing's Tree Frog",
+            "Verreaux's Frog",
+            "Eastern Sign-bearing Froglet",
+            "Spotted Marsh Frog",
+            "Eastern Banjo Frog",
+            "Eastern Dwarf Tree Frog",
+            "Emerald-spotted Tree Frog",
+            "Green Tree Frog",
+            "Striped Marsh Frog"
+          ],
+          "title": "Frog",
+          "axis": {
+            "titleAngle": 0,
+            "titleAlign": "right",
+            "titleX": -8,
+            "titleY": -14,
+            "titleBaseline": "bottom",
+            "labelLimit": 240
+          }
+        },
+        "x": {
+          "field": "start_month",
+          "type": "quantitative",
+          "title": "Month",
+          "scale": {
+            "domain": [
+              1,
+              13
+            ]
+          },
+          "axis": {
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "labelExpr": "['January','February','March','April','May','June','July','August','September','October','November','December'][datum.value - 1]",
+            "grid": true,
+            "orient": "top",
+            "labelAngle": -60,
+            "labelAlign": "left",
+            "labelOverlap": false,
+            "labelPadding": 8
+          }
+        },
+        "x2": {
+          "field": "end_month"
+        },
+        "tooltip": [
+          {
+            "field": "species",
+            "type": "nominal",
+            "title": "Frog"
+          },
+          {
+            "field": "months",
+            "type": "nominal",
+            "title": "Months with more records than usual"
+          },
+          {
+            "field": "peak_index",
+            "type": "quantitative",
+            "title": "Strongest month: times the usual number"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Thin lines between the three groups of callers (grouped by the month with the highest index)",
+      "data": {
+        "values": [
+          {
+            "species": "Eastern Sign-bearing Froglet"
+          },
+          {
+            "species": "Emerald-spotted Tree Frog"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#9aa7b5",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "species",
+          "type": "nominal",
+          "sort": [
+            "Common Eastern Froglet",
+            "Ewing's Tree Frog",
+            "Verreaux's Frog",
+            "Eastern Sign-bearing Froglet",
+            "Spotted Marsh Frog",
+            "Eastern Banjo Frog",
+            "Eastern Dwarf Tree Frog",
+            "Emerald-spotted Tree Frog",
+            "Green Tree Frog",
+            "Striped Marsh Frog"
+          ],
+          "bandPosition": 1
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "species": "Common Eastern Froglet",
+            "start_month": 10.25,
+            "note": "Winter callers"
+          },
+          {
+            "species": "Spotted Marsh Frog",
+            "start_month": 4.25,
+            "note": "Spring callers"
+          },
+          {
+            "species": "Green Tree Frog",
+            "start_month": 3.25,
+            "note": "Summer callers"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "start_month",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "species",
+          "type": "nominal",
+          "sort": [
+            "Common Eastern Froglet",
+            "Ewing's Tree Frog",
+            "Verreaux's Frog",
+            "Eastern Sign-bearing Froglet",
+            "Spotted Marsh Frog",
+            "Eastern Banjo Frog",
+            "Eastern Dwarf Tree Frog",
+            "Emerald-spotted Tree Frog",
+            "Green Tree Frog",
+            "Striped Marsh Frog"
+          ]
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        }
+      },
+      "description": "Annotations: the three groups of callers"
+    }
+  ],
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Months with more FrogID records than expected, by frog",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}

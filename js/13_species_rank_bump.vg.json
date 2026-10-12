@@ -1,0 +1,298 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bump chart: rank of the 10 most recorded species by share of all records in each year, 2018 to 2023.",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/frogid_species_rank.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "records": "number",
+        "share_pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "sort": [
+        {
+          "field": "records",
+          "order": "descending"
+        }
+      ],
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "groupby": [
+        "year"
+      ]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {
+        "grid": true,
+        "domain": false,
+        "ticks": false,
+        "labelAngle": 0,
+        "orient": "bottom",
+        "offset": 24,
+        "values": [
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ]
+      },
+      "scale": {
+        "domain": [
+          2018,
+          2019,
+          2020,
+          2021,
+          2022,
+          2023
+        ],
+        "padding": 0
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "quantitative",
+      "sort": "descending",
+      "scale": {
+        "domainMin": 0
+      },
+      "title": "Frog",
+      "axis": {
+        "labels": false,
+        "ticks": false,
+        "domain": false,
+        "grid": false,
+        "titleAngle": 0,
+        "titleAlign": "right",
+        "titleX": -16,
+        "titleY": -14,
+        "titleBaseline": "bottom"
+      }
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "title": "Line colour",
+      "scale": {
+        "domain": [
+          "Always ranked 1st",
+          "Last until 2022, 6th in 2023",
+          "Other eight species"
+        ],
+        "range": [
+          "#8c510a",
+          "#1b9aaa",
+          "#bdbdbd"
+        ]
+      },
+      "legend": {
+        "orient": "none",
+        "direction": "horizontal",
+        "titleLimit": 300,
+        "legendX": -184,
+        "legendY": 335
+      }
+    },
+    "tooltip": [
+      {
+        "field": "species",
+        "type": "nominal",
+        "title": "Frog"
+      },
+      {
+        "field": "scientific_name",
+        "type": "nominal",
+        "title": "Scientific name"
+      },
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "rank",
+        "type": "quantitative",
+        "title": "Rank"
+      },
+      {
+        "field": "share_pct",
+        "type": "quantitative",
+        "title": "Share of year's records (%)"
+      }
+    ],
+    "detail": {
+      "field": "species",
+      "type": "nominal"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": true,
+          "size": 70
+        }
+      },
+      "encoding": {
+        "size": {
+          "condition": {
+            "test": "datum.group != 'Other eight species'",
+            "value": 5
+          },
+          "value": 2.5
+        },
+        "opacity": {
+          "condition": {
+            "param": "highlight",
+            "value": 1
+          },
+          "value": 0.2
+        }
+      },
+      "description": "Lines with dots (colour = group)",
+      "params": [
+        {
+          "name": "highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "group"
+            ]
+          },
+          "bind": "legend"
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2018"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -16,
+        "fontSize": 13
+      },
+      "encoding": {
+        "text": {
+          "field": "species",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Always ranked 1st",
+              "Last until 2022, 6th in 2023",
+              "Other eight species"
+            ],
+            "range": [
+              "#1f2933",
+              "#1f2933",
+              "#3e4a56"
+            ]
+          },
+          "legend": null
+        },
+        "detail": {
+          "field": "species",
+          "type": "nominal"
+        }
+      },
+      "description": "Labels on the left (2018)"
+    },
+    {
+      "description": "Annotation: why the Common Eastern Froglet ranks first (FrogID species profile)",
+      "data": {
+        "values": [
+          {
+            "year": 2018,
+            "rank": 0.05,
+            "note": "Widespread in the south-east; calls most of the year."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 0,
+        "dy": 0,
+        "fontSize": 14,
+        "fontWeight": "normal",
+        "lineHeight": 18,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 1
+        },
+        "color": {
+          "value": "#1f2933"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    }
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  },
+  "background": null,
+  "padding": {
+    "left": 60,
+    "right": 5,
+    "top": 5,
+    "bottom": 5
+  },
+  "title": {
+    "text": "Rank of the ten most recorded frogs, 2018 to 2023",
+    "anchor": "middle",
+    "frame": "group",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "color": "#1f4e79",
+    "offset": 14,
+    "orient": "top"
+  }
+}
