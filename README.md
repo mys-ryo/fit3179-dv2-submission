@@ -2,7 +2,7 @@
 
 A one-page data story for FIT3179 Data Visualisation 2 (Monash University, Semester 2, 2026).
 It combines FrogID sightings, the national threatened species list and the Threatened Frog Index.
-Author: Ryoma Kano. Date: October 2026.
+Author: Ryoma Kano. Date: 22 October 2026.
 
 ## Folders
 
