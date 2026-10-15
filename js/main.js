@@ -15,7 +15,7 @@ var charts = [
   ["#stream", "js/12_species_month_streamgraph.vg.json"],
   ["#bump", "js/13_species_rank_bump.vg.json"]
 ];
-// Text sizes shared by all charts (the default Vega-Lite sizes, 10 to 11 px, are small next to the 17 px body text)
+// Text sizes shared by all charts (the default Vega-Lite sizes, 10 to 11 px, are small next to the 18 px body text)
 var chartConfig = {
   "axis": { "labelFontSize": 13, "titleFontSize": 14 },
   "legend": { "labelFontSize": 13, "titleFontSize": 14 }

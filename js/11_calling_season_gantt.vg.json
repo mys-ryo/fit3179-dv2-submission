@@ -13,7 +13,7 @@
         "height": {
           "band": 0.6
         },
-        "color": "#08519c",
+        "color": "#2457c9",
         "opacity": 1
       },
       "encoding": {
@@ -208,7 +208,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   }

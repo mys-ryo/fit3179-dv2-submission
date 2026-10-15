@@ -108,8 +108,8 @@
             "index_pct": 61,
             "note": [
               "Chytrid fungus, a disease that spread",
-              "in the late 1980s and 1990s,",
-              "collapsed many frog populations"
+              "in the late 1980s and 1990s, is thought",
+              "to have collapsed many frog populations"
             ]
           }
         ]
@@ -140,44 +140,6 @@
         }
       },
       "description": "Annotation: chytrid fungus (cause of the fall in the late 1980s and 1990s)"
-    },
-    {
-      "description": "Annotation: what the index is (an average)",
-      "data": {
-        "values": [
-          {
-            "year": 1996,
-            "index_pct": 88,
-            "note": [
-              "Average of 28 kinds of threatened frogs,",
-              "not a count of all frogs."
-            ]
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "fontSize": 14,
-        "fontWeight": "normal",
-        "lineHeight": 18,
-        "color": "#1f2933"
-      },
-      "encoding": {
-        "x": {
-          "field": "year",
-          "type": "quantitative"
-        },
-        "y": {
-          "field": "index_pct",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "note",
-          "type": "nominal"
-        }
-      }
     }
   ],
   "background": null,
@@ -193,7 +155,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   }

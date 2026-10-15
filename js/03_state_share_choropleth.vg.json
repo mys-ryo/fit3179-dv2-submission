@@ -69,10 +69,10 @@
               "20% or more"
             ],
             "range": [
-              "#b4aeda",
-              "#8c6fbc",
-              "#5c2f97",
-              "#2a0058"
+              "#d4c0f0",
+              "#a97fe0",
+              "#652bb0",
+              "#260848"
             ]
           },
           "legend": {
@@ -133,7 +133,7 @@
           "as": "label"
         },
         {
-          "calculate": "datum.name == 'New South Wales' ? +datum.longitude + 1.4 : (datum.name == 'Victoria' ? 144.0 : +datum.longitude)",
+          "calculate": "datum.name == 'New South Wales' ? +datum.longitude + 1.4 : (datum.name == 'Victoria' ? 143.0 : +datum.longitude)",
           "as": "label_lon"
         },
         {
@@ -173,6 +173,273 @@
         }
       },
       "description": "State names and shares (white text on the dark classes)"
+    },
+    {
+      "data": {
+        "url": "data/ala_listed_share_by_state.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.name == 'Australian Capital Territory'"
+        },
+        {
+          "calculate": "datum.share_pct < 5 ? 'Under 5%' : datum.share_pct < 10 ? '5% to 10%' : datum.share_pct < 20 ? '10% to 20%' : '20% or more'",
+          "as": "class_label"
+        },
+        {
+          "calculate": "149.13",
+          "as": "lon"
+        },
+        {
+          "calculate": "-35.31",
+          "as": "lat"
+        },
+        {
+          "calculate": "153.0",
+          "as": "lon2"
+        },
+        {
+          "calculate": "-36.3",
+          "as": "lat2"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#3e4a56",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        }
+      },
+      "description": "Line from the Australian Capital Territory to its label"
+    },
+    {
+      "data": {
+        "url": "data/ala_listed_share_by_state.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.name == 'Australian Capital Territory'"
+        },
+        {
+          "calculate": "datum.share_pct < 5 ? 'Under 5%' : datum.share_pct < 10 ? '5% to 10%' : datum.share_pct < 20 ? '10% to 20%' : '20% or more'",
+          "as": "class_label"
+        },
+        {
+          "calculate": "149.13",
+          "as": "lon"
+        },
+        {
+          "calculate": "-35.31",
+          "as": "lat"
+        },
+        {
+          "calculate": "153.0",
+          "as": "lon2"
+        },
+        {
+          "calculate": "-36.3",
+          "as": "lat2"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 60,
+        "fill": null,
+        "stroke": "white",
+        "strokeWidth": 1.6,
+        "opacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      },
+      "description": "Ring that marks where the Australian Capital Territory is"
+    },
+    {
+      "data": {
+        "url": "data/ala_listed_share_by_state.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.name == 'Australian Capital Territory'"
+        },
+        {
+          "calculate": "datum.share_pct < 5 ? 'Under 5%' : datum.share_pct < 10 ? '5% to 10%' : datum.share_pct < 20 ? '10% to 20%' : '20% or more'",
+          "as": "class_label"
+        },
+        {
+          "calculate": "149.13",
+          "as": "lon"
+        },
+        {
+          "calculate": "-35.31",
+          "as": "lat"
+        },
+        {
+          "calculate": "153.0",
+          "as": "lon2"
+        },
+        {
+          "calculate": "-36.3",
+          "as": "lat2"
+        }
+      ],
+      "mark": {
+        "type": "square",
+        "size": 120,
+        "stroke": "#7b8794",
+        "strokeWidth": 0.8,
+        "opacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon2",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat2",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "class_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Under 5%",
+              "5% to 10%",
+              "10% to 20%",
+              "20% or more"
+            ],
+            "range": [
+              "#d4c0f0",
+              "#a97fe0",
+              "#652bb0",
+              "#260848"
+            ]
+          },
+          "legend": null
+        }
+      },
+      "description": "Square in the class colour of the Australian Capital Territory, next to its label"
+    },
+    {
+      "data": {
+        "url": "data/ala_listed_share_by_state.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.name == 'Australian Capital Territory'"
+        },
+        {
+          "calculate": "datum.share_pct < 5 ? 'Under 5%' : datum.share_pct < 10 ? '5% to 10%' : datum.share_pct < 20 ? '10% to 20%' : '20% or more'",
+          "as": "class_label"
+        },
+        {
+          "calculate": "149.13",
+          "as": "lon"
+        },
+        {
+          "calculate": "-35.31",
+          "as": "lat"
+        },
+        {
+          "calculate": "153.0",
+          "as": "lon2"
+        },
+        {
+          "calculate": "-36.3",
+          "as": "lat2"
+        },
+        {
+          "calculate": "['Australian Capital', 'Territory ' + format(datum.share_pct, '.0f') + '%']",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 14,
+        "fontSize": 13,
+        "lineHeight": 13,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon2",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat2",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 1
+        }
+      },
+      "description": "Label of the Australian Capital Territory"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "note": [
+              "Frogs like wet places,",
+              "so most species may be",
+              "recorded in the",
+              "wetter east."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 14,
+        "lineHeight": 16,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "value": 0
+        },
+        "y": {
+          "value": 214
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 1
+        }
+      },
+      "description": "Annotation: frogs like wet places, so most species may be recorded in the wetter east (general knowledge; species counts in this chart's data)"
     }
   ],
   "title": {
@@ -181,8 +448,11 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
+  },
+  "view": {
+    "stroke": null
   }
 }

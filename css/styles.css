@@ -2,7 +2,7 @@
 
 /* Whole page: light blue-grey background, dark text, sans-serif body font */
 body {
-  background-color: #eef2f7;
+  background-color: #e4ebf3;
   color: #1f2933;
   font-family: 'Source Sans 3', Arial, Helvetica, sans-serif;
   font-size: 18px;
@@ -22,14 +22,14 @@ body {
 /* Titles and section headings: serif font and dark blue colour */
 h1, h2 {
   font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-  color: #1f4e79;
+  color: #0f3d75;
   line-height: 1.2;
   margin: 0;
 }
 
 /* Heading sizes: h1 = page title, h2 = section heading */
 h1 {
-  font-size: 38px;
+  font-size: 46px;
   font-weight: 700;
   text-align: center;
 }
@@ -38,10 +38,10 @@ h2 {
   /* The question spans both columns. */
   width: 100%;
   text-align: left;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   padding-top: 28px;
-  border-top: 2px solid #1f4e79;
+  border-top: 2px solid #0f3d75;
   margin-bottom: 14px;
 }
 
@@ -75,8 +75,8 @@ p {
 }
 
 .figure {
-  padding-top: 18px;
-  margin-bottom: 34px;
+  padding-top: 22px;
+  margin-bottom: 42px;
 }
 
 /* Each chart fills its Pure.css grid column. */
@@ -127,7 +127,7 @@ strong {
 }
 
 a {
-  color: #1f4e79;
+  color: #0f3d75;
 }
 
 /* The chart is on the left and its text on the right. */
@@ -154,7 +154,7 @@ a {
 .row-binmap .chart-copy { height: 402px; }
 .row-year .chart-copy { height: 330px; }
 .row-symbolmap .chart-copy { height: 404px; }
-.row-slope .chart-copy { height: 346px; }
+.row-slope .chart-copy { height: 376px; }
 .row-heat .chart-copy { height: 514px; }
 .row-gantt .chart-copy { height: 510px; }
 .row-stream .chart-copy { height: 498px; }
@@ -162,6 +162,13 @@ a {
 .chart-copy p { max-width: none; margin: 0 0 20px; }
 .chart-copy p:last-child { margin-bottom: 0; }   /* so that the text is centred without the space below the last paragraph */
 .chart-visual .note { margin-left: 60px; max-width: calc(100% - 60px); }   /* as wide as the plot: about 10 words per line */
+
+/* Figure 13 (rank chart) has labels on both sides, so its figure uses the full width and its text sits below in two columns. */
+.row-bump { flex-direction: column-reverse; }
+.row-bump .chart-visual { width: 1100px; }
+.row-bump .chart-copy { width: 100%; height: auto; padding-left: 0; margin: 32px 0 20px; flex-direction: row; justify-content: center; }   /* two columns like the opening and closing text */
+.row-bump .chart-copy p { width: 360px; margin: 0; }
+.row-bump .chart-copy p:first-child { margin-right: 56px; }
 
 @media (max-width: 1130px) {
   .chart-row .chart-copy, .chart-row .chart-visual { width: 100%; margin-left: 0; }
@@ -176,18 +183,21 @@ a {
 .text-columns { justify-content: center; }
 .text-columns .pure-u-1-2 {
   box-sizing: border-box;
-  width: 440px;
+  width: 360px;   /* at most 10 words per line */
 }
-.text-columns .pure-u-1-2:first-child { margin-right: 48px; }
+.text-columns .pure-u-1-2:first-child { margin-right: 56px; }
 .text-columns p { max-width: none; margin: 0 0 20px; }
 .text-columns .pure-u-1-2 p:last-child { margin-bottom: 0; }   /* the space before the next section line is the section's own 48px */
 .sources.text-columns ul { max-width: none; margin: 0 0 24px; }
 .sources.text-columns li, .sources.text-columns p { max-width: none; margin-left: 0; }
+.sources.text-columns .pure-u-1-2 { padding-right: 24px; }   /* 15px text: at most 10 words per line */
 .sources a { overflow-wrap: anywhere; }
 @media (max-width: 900px) {
   .text-columns .pure-u-1-2 { width: 100%; margin-right: 0; }
 }
-.sources .author { max-width: none; margin: 8px 0 0; text-align: center; }
+/* A thin line sets the notes (data, processing, AI) apart from the list of sources. */
+.sources.text-columns.notes { width: 776px; max-width: 100%; margin: 8px auto 0; border-top: 1px solid #9aa7b5; padding-top: 32px; }   /* as wide as the two columns above */
+.sources .author { max-width: none; margin: 56px 0 0; text-align: center; }
 
 /* Printing: no scroll bars inside the figures */
 @media print {

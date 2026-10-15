@@ -53,8 +53,8 @@
       },
       "mark": {
         "type": "circle",
-        "fill": "#08519c",
-        "fillOpacity": 0.55,
+        "fill": "#2457c9",
+        "fillOpacity": 0.75,
         "stroke": "white",
         "strokeWidth": 0.8
       },
@@ -242,7 +242,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   },

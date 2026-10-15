@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Slope chart: each state's share of all FrogID records in 2018 and 2023. The three states with the largest change are highlighted.",
   "width": "container",
-  "height": 260,
+  "height": 290,
   "layer": [
     {
       "data": {
@@ -57,7 +57,7 @@
               "Other states"
             ],
             "range": [
-              "#08519c",
+              "#2457c9",
               "#bdbdbd"
             ]
           },
@@ -66,7 +66,7 @@
             "direction": "horizontal",
             "titleLimit": 300,
             "legendX": -78,
-            "legendY": 311
+            "legendY": 341
           }
         },
         "tooltip": [
@@ -168,7 +168,7 @@
               "Other states"
             ],
             "range": [
-              "#08519c",
+              "#2457c9",
               "#3e4a56"
             ]
           },
@@ -214,7 +214,7 @@
               "Other states"
             ],
             "range": [
-              "#08519c",
+              "#2457c9",
               "#3e4a56"
             ]
           },
@@ -247,7 +247,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   }

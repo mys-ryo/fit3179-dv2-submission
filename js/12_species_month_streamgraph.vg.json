@@ -81,10 +81,10 @@
               "Emerald-spotted Tree Frog"
             ],
             "range": [
-              "#8c510a",
-              "#b59b00",
-              "#cc79a7",
-              "#1a1a1a"
+              "#9a6b3f",
+              "#c9b34f",
+              "#d68fb3",
+              "#55606b"
             ]
           },
           "legend": {
@@ -93,7 +93,7 @@
             "titleLimit": 300,
             "direction": "horizontal",
             "legendX": -90,
-            "legendY": 285,
+            "legendY": 289,
             "columns": 2
           }
         },
@@ -145,8 +145,9 @@
             "month": "January",
             "value": 112000,
             "note": [
-              "Many frogs call in spring and summer, the breeding",
-              "season; others call in autumn, winter or all year."
+              "Male frogs call to attract mates.",
+              "Many call in spring and summer, the breeding",
+              "season; others in autumn, winter or all year."
             ]
           }
         ]
@@ -208,7 +209,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   }

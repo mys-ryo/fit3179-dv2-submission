@@ -51,7 +51,7 @@
       "mark": {
         "type": "rect",
         "stroke": "white",
-        "strokeWidth": 0.4
+        "strokeWidth": 0.2
       },
       "encoding": {
         "longitude": {
@@ -80,10 +80,10 @@
               "20% or more"
             ],
             "range": [
-              "#b4aeda",
-              "#8c6fbc",
-              "#5c2f97",
-              "#2a0058"
+              "#8cccd1",
+              "#349fa7",
+              "#006b73",
+              "#00343b"
             ]
           },
           "legend": {
@@ -267,6 +267,43 @@
         }
       },
       "description": "Text note: Lord Howe Island"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "note": [
+              "Some listed frogs",
+              "live in only one",
+              "small mountain area."
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 14,
+        "lineHeight": 16,
+        "color": "#1f2933"
+      },
+      "encoding": {
+        "x": {
+          "value": 12
+        },
+        "y": {
+          "value": 240
+        },
+        "text": {
+          "field": "note",
+          "type": "nominal"
+        },
+        "opacity": {
+          "value": 1
+        }
+      },
+      "description": "Annotation: some listed frogs, such as the Baw Baw Frog and the Southern Corroboree Frog, live in only one small mountain area (general knowledge)"
     }
   ],
   "background": null,
@@ -282,8 +319,11 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
+  },
+  "view": {
+    "stroke": null
   }
 }

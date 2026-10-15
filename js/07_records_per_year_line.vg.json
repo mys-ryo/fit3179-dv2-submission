@@ -29,7 +29,7 @@
     {
       "mark": {
         "type": "line",
-        "color": "#08519c",
+        "color": "#2457c9",
         "strokeWidth": 2.5
       },
       "description": "Line"
@@ -39,7 +39,7 @@
         "type": "point",
         "filled": true,
         "size": 90,
-        "color": "#08519c",
+        "color": "#2457c9",
         "opacity": 1
       },
       "encoding": {
@@ -72,7 +72,7 @@
             "records": 100000,
             "note": [
               "During the pandemic, more people",
-              "recorded frogs at home"
+              "may have recorded frogs at home"
             ]
           }
         ]
@@ -103,6 +103,56 @@
         }
       },
       "description": "Annotation: COVID-19 (2020)"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2017"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dy": 3,
+        "fontSize": 13,
+        "color": "#3e4a56",
+        "dx": 16
+      },
+      "encoding": {
+        "text": {
+          "value": "Incomplete year"
+        },
+        "opacity": {
+          "value": 1
+        }
+      },
+      "description": "Label: 2017 is an incomplete year"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2024"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "top",
+        "dy": 14,
+        "fontSize": 13,
+        "color": "#3e4a56",
+        "dx": 8
+      },
+      "encoding": {
+        "text": {
+          "value": "Incomplete year"
+        },
+        "opacity": {
+          "value": 1
+        }
+      },
+      "description": "Label: 2024 is an incomplete year"
     }
   ],
   "background": null,
@@ -118,7 +168,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   }

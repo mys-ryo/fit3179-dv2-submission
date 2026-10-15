@@ -65,7 +65,8 @@
     {
       "mark": {
         "type": "rect",
-        "stroke": "white"
+        "stroke": "white",
+        "strokeWidth": 1.5
       },
       "encoding": {
         "color": {
@@ -81,11 +82,11 @@
               "15% or more"
             ],
             "range": [
-              "#a6cbec",
-              "#77a1ce",
-              "#417ab6",
-              "#125190",
-              "#092a5c"
+              "#9cc7fa",
+              "#4ba9f7",
+              "#2381c4",
+              "#0b4a74",
+              "#00152d"
             ]
           },
           "legend": {
@@ -95,7 +96,7 @@
             "symbolSize": 260,
             "titleLimit": 300,
             "legendX": -163,
-            "legendY": 291
+            "legendY": 312
           }
         },
         "tooltip": [
@@ -131,29 +132,6 @@
       "description": "Coloured cells"
     },
     {
-      "mark": {
-        "type": "text",
-        "fontSize": 14,
-        "fontWeight": "bold"
-      },
-      "encoding": {
-        "text": {
-          "field": "share_of_state_pct",
-          "type": "quantitative",
-          "format": ".0f"
-        },
-        "color": {
-          "value": "white"
-        }
-      },
-      "transform": [
-        {
-          "filter": "datum.share_of_state_pct >= 15"
-        }
-      ],
-      "description": "Numbers in the cells with 15% or more"
-    },
-    {
       "data": {
         "values": [
           {
@@ -161,7 +139,8 @@
             "month": "January",
             "note": [
               "Frogs are often most active after rain.",
-              "Rain: wet season in the north, more in winter in the temperate south."
+              "Darwin's wet season runs December to March.",
+              "Perth's rain falls mostly in winter."
             ]
           }
         ]
@@ -215,7 +194,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   }

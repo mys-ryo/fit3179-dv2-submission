@@ -97,8 +97,8 @@
           "Other eight species"
         ],
         "range": [
-          "#8c510a",
-          "#1b9aaa",
+          "#9a6b3f",
+          "#b5206b",
           "#bdbdbd"
         ]
       },
@@ -223,6 +223,47 @@
       "description": "Labels on the left (2018)"
     },
     {
+      "transform": [
+        {
+          "filter": "datum.year == 2023"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 16,
+        "fontSize": 13
+      },
+      "encoding": {
+        "text": {
+          "field": "species",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Always ranked 1st",
+              "Last until 2022, 6th in 2023",
+              "Other eight species"
+            ],
+            "range": [
+              "#1f2933",
+              "#1f2933",
+              "#3e4a56"
+            ]
+          },
+          "legend": null
+        },
+        "detail": {
+          "field": "species",
+          "type": "nominal"
+        }
+      },
+      "description": "Labels on the right (2023)"
+    },
+    {
       "description": "Annotation: why the Common Eastern Froglet ranks first (FrogID species profile)",
       "data": {
         "values": [
@@ -237,7 +278,7 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 0,
+        "dx": 48,
         "dy": 0,
         "fontSize": 14,
         "fontWeight": "normal",
@@ -291,7 +332,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   }

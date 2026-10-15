@@ -152,8 +152,8 @@
       "data": {
         "values": [
           {
-            "common_name": "Northern Heath Frog",
-            "records": 15000,
+            "common_name": "Sloane's Froglet",
+            "records": 14000,
             "note": [
               "Green and Golden Bell Frog:",
               "once common on the coast,",
@@ -215,7 +215,7 @@
     "frame": "group",
     "fontSize": 16,
     "fontWeight": "bold",
-    "color": "#1f4e79",
+    "color": "#0f3d75",
     "offset": 14,
     "orient": "top"
   }

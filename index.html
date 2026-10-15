@@ -32,12 +32,12 @@
     <div class="pure-g">
       <div class="pure-u-1-1">
         <h1>Are Australia's Frogs Disappearing?</h1>
-        <p class="subtitle">Thousands of people record frogs on their phones.<br>What do those records tell us, and what do they hide?</p>
+        <p class="subtitle">Thousands of people record frogs on their phones.<br>What do records tell us, and what do they hide?</p>
       </div>
     </div>
     <div class="pure-g text-columns intro">
       <div class="pure-u-1-2">
-        <p>Frogs live in rainforests and wetlands all over the world, including Malaysia, where many of us hear them after the rain. Many frogs need both water and land, so they react quickly when their home changes. That is why scientists watch frogs closely.</p>
+        <p>Frogs live in rainforests and wetlands all over the world, including Malaysia, where many of us hear them after the rain. Many frogs need both water and land, so they react quickly when their home changes. That is one reason scientists watch frogs closely.</p>
       </div>
       <div class="pure-u-1-2">
         <p>This page looks at <strong>Australia</strong>, where records of frogs and a national list of threatened frogs are both open to the public. Do the records show that frogs are doing well, or is the picture more fragile?</p>
@@ -88,7 +88,6 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Choropleth map: threatened share of frog species by state (js/03_state_share_choropleth.vg.json) -->
           <div id="choropleth" class="vis"></div>
-          <p class="note">The Australian Capital Territory (19%) is too small to see.</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-status">
@@ -104,7 +103,7 @@
       </div>
       <div class="pure-g figure chart-row layout-a row-binmap">
         <div class="pure-u-1-3 chart-copy">
-          <p>A finer map shows the same pattern: listed frogs are <strong>concentrated in the south-east</strong>.</p>
+          <p>A finer map of records shows a similar pattern: listed frogs are <strong>concentrated in the south-east</strong>.</p>
           <p>In parts of it, <strong>more than one in five</strong> records are of listed frogs. In most squares, <strong>less than 1%</strong> are.</p>
         </div>
         <div class="pure-u-2-3 chart-visual">
@@ -149,7 +148,6 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Line chart: FrogID records per year (js/07_records_per_year_line.vg.json) -->
           <div id="year" class="vis"></div>
-          <p class="note">The first and last years are partial.</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-symbolmap">
@@ -182,7 +180,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Bump chart: rank of the 10 most recorded species (js/13_species_rank_bump.vg.json) -->
           <div id="bump" class="vis"></div>
-          <p class="note">Rank 1 is the most recorded frog, in complete years only.<br>Click a line colour in the legend to highlight it.</p>
+          <p class="note">Rank 1 is the most recorded frog (complete years only).<br>Click a line colour in the legend to highlight it.</p>
         </div>
       </div>
     </div>
@@ -206,7 +204,7 @@
       </div>
       <div class="pure-g figure chart-row layout-a row-gantt">
         <div class="pure-u-1-3 chart-copy">
-          <p><strong>Nearly half</strong> of all FrogID records are made in spring (September to November), which hides differences between frogs.</p>
+          <p><strong>Nearly half</strong> of all FrogID records are made in spring (September to November), which can hide differences between frogs.</p>
           <p>The frogs fall into <strong>three groups</strong>: winter, spring and summer callers.</p>
         </div>
         <div class="pure-u-2-3 chart-visual">
@@ -273,15 +271,15 @@
             Common Eastern Froglet: FrogID species profile<br><a href="https://www.frogid.net.au/frogs/crinia-signifera/" target="_blank">https://www.frogid.net.au/frogs/crinia-signifera/</a><br>
             Gastric-brooding frog: Wikipedia<br><a href="https://en.wikipedia.org/wiki/Gastric-brooding_frog" target="_blank">https://en.wikipedia.org/wiki/Gastric-brooding_frog</a><br>
             Records in 2020: Australian Museum, &ldquo;Increase in citizen scientists during COVID-19&rdquo;<br><a href="https://australian.museum/about/organisation/media-centre/increase-citizen-scientists-during-covid-19/" target="_blank">https://australian.museum/about/organisation/media-centre/increase-citizen-scientists-during-covid-19/</a><br>
-            When it rains: Bureau of Meteorology, Australian climate zones<br><a href="https://www.bom.gov.au/resources/learn-and-explore/climate-knowledge-centre/australian-climate-zones" target="_blank">https://www.bom.gov.au/resources/learn-and-explore/climate-knowledge-centre/australian-climate-zones</a><br>
+            When it rains: Bureau of Meteorology, climate statistics for Darwin Airport and Perth Airport<br><a href="http://www.bom.gov.au/climate/averages/tables/cw_014015.shtml" target="_blank">http://www.bom.gov.au/climate/averages/tables/cw_014015.shtml</a><br><a href="http://www.bom.gov.au/climate/averages/tables/cw_009021.shtml" target="_blank">http://www.bom.gov.au/climate/averages/tables/cw_009021.shtml</a><br>
             Green and Golden Bell Frog: New South Wales Government, Bell frogs<br><a href="https://environment.nsw.gov.au/topics/animals-and-plants/native-animals/native-animal-facts/amphibians/frogs/bell-frogs" target="_blank">https://environment.nsw.gov.au/topics/animals-and-plants/native-animals/native-animal-facts/amphibians/frogs/bell-frogs</a></li>
           <li>Charts: Vega-Lite. Layout: Pure.css. Fonts: Fraunces and Source Sans 3 (Google Fonts).</li>
         </ul>
       </div>
     </div>
-    <div class="pure-g text-columns sources">
+    <div class="pure-g text-columns sources notes">
       <div class="pure-u-1-2">
-        <p><strong>Notes on the data:</strong> Verreaux's Frog is left out because only one of its subspecies is listed. A species needs at least 5 records in a state, and a map square at least 50 records. Records of threatened frogs may be rounded to about 11 kilometres (FrogID). A frog type in several states is counted in each state.</p>
+        <p><strong>Notes on the data:</strong> Verreaux's Frog is left out because only one of its subspecies is listed. A species needs at least 5 records in a state.<br>A map square needs at least 50. Records of threatened frogs may be rounded to about 11 kilometres (FrogID). A frog type in several states is counted in each state.</p>
         <p><strong>Data processing:</strong> The data were downloaded on 5 October 2026 and summed up with Python scripts (see the scripts folder) before they were charted.</p>
       </div>
       <div class="pure-u-1-2">
