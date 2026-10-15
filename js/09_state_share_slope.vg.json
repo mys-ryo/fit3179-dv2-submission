@@ -101,24 +101,15 @@
         {
           "mark": {
             "type": "line",
-            "strokeWidth": 3
+            "strokeWidth": 3,
+            "opacity": 1
           },
-          "encoding": {
-            "opacity": {
-              "condition": {
-                "test": "datum.group != 'Other states'",
-                "value": 1
-              },
-              "value": 0.85
-            },
-            "size": {
-              "condition": {
-                "test": "datum.group != 'Other states'",
-                "value": 5
-              },
-              "value": 1.5
+          "transform": [
+            {
+              "filter": "datum.group == 'Other states'"
             }
-          }
+          ],
+          "description": "Grey lines (drawn first)"
         },
         {
           "mark": {
@@ -126,7 +117,40 @@
             "filled": true,
             "size": 60,
             "opacity": 1
-          }
+          },
+          "transform": [
+            {
+              "filter": "datum.group == 'Other states'"
+            }
+          ],
+          "description": "Grey dots"
+        },
+        {
+          "mark": {
+            "type": "line",
+            "strokeWidth": 3,
+            "opacity": 1
+          },
+          "transform": [
+            {
+              "filter": "datum.group != 'Other states'"
+            }
+          ],
+          "description": "Blue lines (drawn last, so they stay on top)"
+        },
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 60,
+            "opacity": 1
+          },
+          "transform": [
+            {
+              "filter": "datum.group != 'Other states'"
+            }
+          ],
+          "description": "Blue dots"
         }
       ],
       "description": "Lines and dots (colour = group of states)"

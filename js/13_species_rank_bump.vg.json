@@ -149,16 +149,10 @@
         "point": {
           "filled": true,
           "size": 70
-        }
+        },
+        "strokeWidth": 3
       },
       "encoding": {
-        "size": {
-          "condition": {
-            "test": "datum.group != 'Other eight species'",
-            "value": 5
-          },
-          "value": 2.5
-        },
         "opacity": {
           "condition": {
             "param": "highlight",

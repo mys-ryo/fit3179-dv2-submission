@@ -204,7 +204,7 @@
     "bottom": 5
   },
   "title": {
-    "text": "Monthly FrogID records of the four most recorded frogs",
+    "text": "Raw monthly FrogID records of the four most recorded frogs",
     "anchor": "middle",
     "frame": "group",
     "fontSize": 16,
