@@ -71,7 +71,7 @@
         "color": {
           "field": "class_label",
           "type": "nominal",
-          "title": "Threatened species' share of frog records",
+          "title": "Listed frogs' share of records",
           "scale": {
             "domain": [
               "Under 1%",
@@ -106,13 +106,13 @@
           {
             "field": "threatened_records",
             "type": "quantitative",
-            "title": "Threatened species records",
+            "title": "Listed frog records",
             "format": ","
           },
           {
             "field": "share_threatened",
             "type": "quantitative",
-            "title": "Threatened share (%)"
+            "title": "Listed share (%)"
           }
         ]
       },

@@ -88,12 +88,12 @@
           {
             "field": "months",
             "type": "nominal",
-            "title": "Months with more records than usual"
+            "title": "Busier than usual"
           },
           {
             "field": "peak_index",
             "type": "quantitative",
-            "title": "Strongest month: times the usual number"
+            "title": "Peak month (times the usual)"
           }
         ]
       }
@@ -203,7 +203,7 @@
     "bottom": 5
   },
   "title": {
-    "text": "Months with more FrogID records than expected, by frog",
+    "text": "Months with more FrogID records than usual, by frog",
     "anchor": "middle",
     "frame": "group",
     "fontSize": 16,

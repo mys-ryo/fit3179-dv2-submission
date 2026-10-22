@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Choropleth map: share of the frog species recorded in each state that are on the national threatened list, in four classes.",
+  "description": "Choropleth map: share of the frog species recorded in each state that are on the national list, in four classes.",
   "width": "container",
   "height": 330,
   "projection": {
@@ -60,7 +60,7 @@
         "color": {
           "field": "class_label",
           "type": "nominal",
-          "title": "Threatened share of recorded frog species",
+          "title": "Listed share of recorded frog species",
           "scale": {
             "domain": [
               "Under 5%",
@@ -99,7 +99,7 @@
           {
             "field": "listed_species_recorded",
             "type": "quantitative",
-            "title": "Of which on the threatened list"
+            "title": "Of which listed"
           },
           {
             "field": "share_pct",
