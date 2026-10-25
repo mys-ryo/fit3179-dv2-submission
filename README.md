@@ -14,6 +14,7 @@ Author: Ryoma Kano. Date: 25 October 2026.
 | `js/*.vg.json` | One Vega-Lite specification per chart (readable JSON, not minified). |
 | `data/` | The small data files that the charts read (CSV and one TopoJSON map). |
 | `scripts/` | Python scripts for preparing the chart data, plus an optional local test server. |
+| `sketch/` | The hand-drawn sketch of the page (PDF). |
 
 ## File names
 
@@ -23,7 +24,7 @@ Author: Ryoma Kano. Date: 25 October 2026.
 
 ## Charts
 
-13 charts: three maps (choropleth, proportional symbol map, bin map), heat map, waffle chart, lollipop chart, bump chart, slope chart, streamgraph, Gantt chart, stacked bar chart, and two line charts.
+13 charts: three maps (choropleth, graduated symbol map, bin map), heat map, waffle chart, lollipop chart, bump chart, slope chart, streamgraph, Gantt chart, stacked bar chart, and two line charts.
 
 | Page section | Chart | Specification |
 |---|---|---|
@@ -31,10 +32,10 @@ Author: Ryoma Kano. Date: 25 October 2026.
 | 1 | Threatened frog types by status (waffle) | `js/02_status_waffle.vg.json` |
 | 2 | Share of recorded frog species that are on the threatened list, by state (choropleth map) | `js/03_state_share_choropleth.vg.json` |
 | 2 | Listed frog types by state and status (stacked bar) | `js/04_status_by_state_stacked_bar.vg.json` |
+| 2 | Threatened share of frog records (bin map) | `js/06_threatened_share_bin_map.vg.json` |
 | 3 | Listed frogs with the most records (lollipop) | `js/05_threatened_records_lollipop.vg.json` |
-| 3 | Threatened share of frog records (bin map) | `js/06_threatened_share_bin_map.vg.json` |
 | 4 | FrogID records per year (line) | `js/07_records_per_year_line.vg.json` |
-| 4 | FrogID records by area (proportional symbol map) | `js/08_records_by_area_symbol_map.vg.json` |
+| 4 | FrogID records by area (graduated symbol map) | `js/08_records_by_area_symbol_map.vg.json` |
 | 4 | Share of FrogID records by state, 2018 and 2023 (slope) | `js/09_state_share_slope.vg.json` |
 | 4 | Rank of the 10 most recorded species (bump) | `js/13_species_rank_bump.vg.json` |
 | 5 | Records by month and state (heat map) | `js/10_month_state_heat_map.vg.json` |
@@ -45,16 +46,16 @@ Author: Ryoma Kano. Date: 25 October 2026.
 
 Data were downloaded on 5 October 2026.
 
-- **FrogID**, Australian Museum (dataset 7.0, November 2017 to November 2024, via the Atlas of Living Australia, data resource dr14760): frog records by state, year, month, species and area. Rowley, J. J. L. & Callaghan, C. T. (2020). Licence CC BY-NC 4.0.
-  https://www.frogid.net.au/science/map-and-data/
 - **Atlas of Living Australia**: records of all frogs (all contributors), for the bin map, the share of listed frogs and the most recorded listed frogs. Licence varies by contributor.
   https://www.ala.org.au/
 - **Department of Climate Change, Energy, the Environment and Water**: Threatened Species State Lists, 28 August 2026 (status of 53 listed frog types, states where they occur). Licence CC BY 3.0 AU.
   https://data.gov.au/data/dataset/threatened-species-state-lists
-- **Threatened Species Index (TSX)**, TERN and The University of Queensland: Threatened Frog Index 2025 (decline of threatened frogs, 1985 to 2022). Licence CC BY 4.0.
-  https://tsx.org.au/visualising-the-index/the-threatened-frog-index-2025/
+- **FrogID**, Australian Museum (dataset 7.0, November 2017 to November 2024, via the Atlas of Living Australia, data resource dr14760): frog records by state, year, month, species and area. Rowley, J. J. L. & Callaghan, C. T. (2020). Licence CC BY-NC 4.0.
+  https://www.frogid.net.au/science/map-and-data/
 - **Natural Earth**: Admin 1 states and provinces, for the state borders (public domain).
   https://www.naturalearthdata.com/
+- **Threatened Species Index (TSX)**, TERN and The University of Queensland: Threatened Frog Index 2025 (decline of threatened frogs, 1985 to 2022). Licence CC BY 4.0.
+  https://tsx.org.au/visualising-the-index/the-threatened-frog-index-2025/
 
 ## How the data files were made
 
@@ -64,7 +65,7 @@ The raw downloads are not in this repository (they are large). They were summed 
 |---|---|
 | `make_state_table.py` | `data/ala_listed_share_by_state.csv` (frog species recorded per state, and how many are on the threatened list) |
 | `make_bin_grid.py` | `data/ala_threatened_share_bins.csv` (100 km x 100 km squares for the bin map) |
-| `make_map2_data.py` | `data/frogid_records_by_area.csv` (circles for the proportional symbol map) |
+| `make_map2_data.py` | `data/frogid_records_by_area.csv` (circles for the graduated symbol map) |
 | `make_chart_data.py` | All other small files in `data/` |
 
 The scripts are published so that every number in `data/` can be traced back. They read the raw downloads from `data/raw/`, which is not part of this repository, so they cannot be run without downloading those files again (see the sources above and the data snapshot below). Each script starts with a short description of its input files and the rules it applies (for example, the minimum number of records). Run a script from the project root with `python3 scripts/<name>.py` (Python 3, standard library only).
@@ -82,7 +83,7 @@ The state borders were cut out of the Natural Earth file with mapshaper.org and 
 
 ## Use of AI
 
-The author built the charts from the unit's Vega-Lite templates. Claude helped write and edit parts of the code, reviewed it, gave advice on how to process the data, and helped proofread and format the English text. The author chose the topic, story, charts and design, did the final checks and decided the content of the text.
+The author built the charts from the unit's Vega-Lite templates. Claude helped write and edit parts of the code, reviewed it, helped collect and process the data (running the Atlas queries and the counting scripts), and helped proofread and format the English text. The author chose the topic, story, charts and design, decided the text's content, and did the final checks.
 
 ## Local development
 

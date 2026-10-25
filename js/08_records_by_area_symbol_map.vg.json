@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Proportional symbol map: FrogID records by area, circle size in four classes.",
+  "description": "Graduated symbol map: FrogID records by area, circle size in four classes.",
   "width": "container",
   "height": 330,
   "projection": {
