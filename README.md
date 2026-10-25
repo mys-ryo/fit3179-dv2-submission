@@ -2,7 +2,7 @@
 
 A one-page data story for FIT3179 Data Visualisation 2 (Monash University, Semester 2, 2026).
 It combines FrogID sightings, the national threatened species list and the Threatened Frog Index.
-Author: Ryoma Kano. Date: 25 October 2026.
+Author: Ryoma Kano. Date: 26 October 2026.
 
 ## Folders
 
@@ -19,7 +19,7 @@ Author: Ryoma Kano. Date: 25 October 2026.
 ## File names
 
 - Chart specifications: `js/NN_topic_idiom.vg.json`. NN is the number of the chart (the order on the page is in the table below; the rank chart, 13, is in section 4).
-- Data files: `data/source_content.csv`. The start of the name is the source: `frogid_` (FrogID), `dcceew_` (threatened species list), `ala_` (Atlas of Living Australia), `tsx_` (Threatened Frog Index).
+- Data files: `data/source_content.csv`. The start of the name is the source: `frogid_` (FrogID), `dcceew_` (threatened species list), `ala_` (Atlas of Living Australia), `tsx_` (Threatened Frog Index). The two label files, `cities.csv` and `state_labels.csv`, are the exceptions.
 - All names are lower case, with underscores and no spaces.
 
 ## Charts
@@ -87,6 +87,6 @@ The author built the charts from the unit's Vega-Lite templates. Claude helped w
 
 ## Local development
 
-Open the project root folder (`fit3179-dv2`) in VS Code. Right-click `index.html` and choose **Open with Live Server**, then use the local URL shown by Live Server. The page loads chart specifications from `js/` and their data from `data/`; previewing a `.vg.json` file on its own will not display the full page.
+Open the project root folder in VS Code. Right-click `index.html` and choose **Open with Live Server**, then use the local URL shown by Live Server. The page loads chart specifications from `js/` and their data from `data/`; previewing a `.vg.json` file on its own will not display the full page.
 
 As an alternative to Live Server, `scripts/dev_server.py` serves the project folder on `http://127.0.0.1:8765` and tells the browser not to cache files, so edits to `.vg.json` and `.csv` files show up after a reload. Run `python3 scripts/dev_server.py` from the project root and open that address. It is only a helper for testing; the published page does not use it.

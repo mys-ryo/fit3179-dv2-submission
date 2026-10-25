@@ -53,12 +53,13 @@
       </div>
       <div class="pure-g figure chart-row layout-a row-tsx">
         <div class="pure-u-1-3 chart-copy">
-          <p>Scientists follow <strong>28 kinds of</strong> threatened or near-threatened <strong>frogs</strong>, mostly in eastern Australia.</p>
+          <p>Scientists follow <strong>28 types of</strong> threatened or near-threatened <strong>frogs</strong>, mostly in eastern Australia.</p>
           <p>Between 1985 and 2022, their numbers <strong>fell by about 97%</strong>, on average.</p>
         </div>
         <div class="pure-u-2-3 chart-visual">
           <!-- Line chart: Threatened Frog Index (js/01_tsx_index_line.vg.json) -->
           <div id="tsx" class="vis"></div>
+          <p class="note">Source: Threatened Species Index (2025).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-waffle">
@@ -68,7 +69,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Waffle chart: one square per listed frog type, by status (js/02_status_waffle.vg.json) -->
           <div id="waffle" class="vis"></div>
-          <p class="note">Click a status in the legend to highlight it.</p>
+          <p class="note">Click a status in the legend to highlight it.<br>Source: Department of Climate Change, Energy, the Environment and Water (2026); Wikipedia contributors (n.d.).</p>
         </div>
       </div>
     </div>
@@ -88,6 +89,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Choropleth map: threatened share of frog species by state (js/03_state_share_choropleth.vg.json) -->
           <div id="choropleth" class="vis"></div>
+          <p class="note">Source: Atlas of Living Australia (n.d.); Department of Climate Change, Energy, the Environment and Water (2026); Natural Earth (n.d.).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-status">
@@ -98,7 +100,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Stacked bar chart: listed frog types by state and status (js/04_status_by_state_stacked_bar.vg.json) -->
           <div id="status" class="vis"></div>
-          <p class="note">Click a status in the legend to highlight it.</p>
+          <p class="note">Click a status in the legend to highlight it.<br>Source: Australian Museum (n.d.-b); Commonwealth of Australia (2016); Department of Climate Change, Energy, the Environment and Water (2026).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-binmap">
@@ -109,7 +111,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Bin map: threatened share of frog records in 100 km squares (js/06_threatened_share_bin_map.vg.json) -->
           <div id="binmap" class="vis"></div>
-          <p class="note">Each square is 100 by 100 kilometres.<br>Shares count records, not species.</p>
+          <p class="note">Each square is 100 by 100 kilometres.<br>Shares count records, not species.<br>Source: Atlas of Living Australia (n.d.); Department of Climate Change, Energy, the Environment and Water (2026); Natural Earth (n.d.).</p>
         </div>
       </div>
     </div>
@@ -123,13 +125,13 @@
       </div>
       <div class="pure-g figure chart-row layout-a row-lollipop">
         <div class="pure-u-1-3 chart-copy">
-          <p>Records of listed frogs are very uneven: <strong>two species</strong> make up <strong>about six in ten</strong> of all records in the Atlas of Living Australia.</p>
+          <p>Records of listed frogs are very uneven: <strong>two species</strong> make up <strong>about six in ten</strong> of these records in the Atlas of Living Australia.</p>
           <p>The next eight frogs each have fewer than 6,500 records.</p>
         </div>
         <div class="pure-u-2-3 chart-visual">
           <!-- Lollipop chart: listed frogs with the most records (js/05_threatened_records_lollipop.vg.json) -->
           <div id="lollipop" class="vis"></div>
-          <p class="note">Extinct frogs are not shown.</p>
+          <p class="note">Extinct frogs are not shown.<br>Source: Atlas of Living Australia (n.d.); Department of Climate Change, Energy, the Environment and Water (2026); New South Wales Government (2023).</p>
         </div>
       </div>
     </div>
@@ -148,6 +150,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Line chart: FrogID records per year (js/07_records_per_year_line.vg.json) -->
           <div id="year" class="vis"></div>
+          <p class="note">Source: Australian Museum (n.d.-c); Fitzgerald (2020); Rowley and Callaghan (2020).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-symbolmap">
@@ -158,7 +161,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Graduated symbol map: FrogID records by area (js/08_records_by_area_symbol_map.vg.json) -->
           <div id="symbolmap" class="vis"></div>
-          <p class="note">Each circle covers an area about 300 kilometres across.</p>
+          <p class="note">Each circle covers an area about 300 kilometres across.<br>Source: Australian Museum (n.d.-c, 2024); Natural Earth (n.d.).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-slope">
@@ -169,7 +172,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Slope chart: each state's share of FrogID records, 2018 and 2023 (js/09_state_share_slope.vg.json) -->
           <div id="slope" class="vis"></div>
-          <p class="note">Each label shows the state's share of all FrogID records.</p>
+          <p class="note">Each label shows the state's share of all FrogID records.<br>Source: Australian Museum (n.d.-c).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-bump">
@@ -180,7 +183,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Bump chart: rank of the 10 most recorded species (js/13_species_rank_bump.vg.json) -->
           <div id="bump" class="vis"></div>
-          <p class="note">Rank 1 is the most recorded frog (complete years only).<br>Click a line colour in the legend to highlight it.</p>
+          <p class="note">Rank 1 is the most recorded frog (complete years only).<br>Click a line colour in the legend to highlight it.<br>Source: Australian Museum (n.d.-a, n.d.-c).</p>
         </div>
       </div>
     </div>
@@ -200,6 +203,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Heat map: share of each state's records by month (js/10_month_state_heat_map.vg.json) -->
           <div id="heat" class="vis"></div>
+          <p class="note">Source: Australian Museum (n.d.-b, n.d.-c); Bureau of Meteorology (n.d.-a, n.d.-b).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-gantt">
@@ -210,7 +214,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Gantt chart: months when each frog is recorded more than usual (js/11_calling_season_gantt.vg.json) -->
           <div id="gantt" class="vis"></div>
-          <p class="note">Each bar marks months with more records than usual, once the number of people recording in that month is taken into account.<br>A frog with two bars has two separate periods.</p>
+          <p class="note">Each bar marks months with more records than usual, once the number of people recording in that month is taken into account.<br>A frog with two bars has two separate periods.<br>Source: Australian Museum (n.d.-c).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-stream">
@@ -221,7 +225,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Streamgraph: records by month for four species (js/12_species_month_streamgraph.vg.json) -->
           <div id="stream" class="vis"></div>
-          <p class="note">Read a band's thickness.<br>Click a species in the legend to highlight it.</p>
+          <p class="note">Read a band's thickness.<br>Click a species in the legend to highlight it.<br>Source: Australian Museum (n.d.-b, n.d.-c).</p>
         </div>
       </div>
     </div>
@@ -254,13 +258,13 @@
     <div class="pure-g text-columns sources">
       <div class="pure-u-1-2">
         <ul>
-          <li>Atlas of Living Australia. (n.d.). Occurrence records of frogs (class Amphibia) in Australia [Data set].<br><a href="https://www.ala.org.au/" target="_blank">https://www.ala.org.au/</a></li>
+          <li>Atlas of Living Australia. (n.d.). Occurrence records of frogs (class Amphibia) in Australia [Data set]. Retrieved October 5, 2026, from<br><a href="https://www.ala.org.au/" target="_blank">https://www.ala.org.au/</a></li>
           <li>Australian Museum. (n.d.-a). Crinia signifera: Species profile. FrogID.<br><a href="https://www.frogid.net.au/frogs/crinia-signifera/" target="_blank">https://www.frogid.net.au/frogs/crinia-signifera/</a></li>
           <li>Australian Museum. (n.d.-b). FAQs. FrogID.<br><a href="https://www.frogid.net.au/participate/faq/" target="_blank">https://www.frogid.net.au/participate/faq/</a></li>
-          <li>Australian Museum. (n.d.-c). FrogID (Version 7.0) [Data set]. Via the Atlas of Living Australia, data resource dr14760. Licence Creative Commons Attribution-NonCommercial 4.0 International.<br><a href="https://www.frogid.net.au/science/map-and-data/" target="_blank">https://www.frogid.net.au/science/map-and-data/</a></li>
+          <li>Australian Museum. (n.d.-c). FrogID (Version 7.0) [Data set]. Atlas of Living Australia, data resource dr14760. Licence Creative Commons Attribution-NonCommercial 4.0 International.<br><a href="https://collections.ala.org.au/public/show/dr14760" target="_blank">https://collections.ala.org.au/public/show/dr14760</a></li>
           <li>Australian Museum. (2024). FrogID. Explore, Summer 2024.<br><a href="https://australian.museum/publications/explore_summer2024/frogid/" target="_blank">https://australian.museum/publications/explore_summer2024/frogid/</a></li>
-          <li>Bureau of Meteorology. (n.d.-a). Climate statistics for Australian locations: Darwin Airport.<br><a href="http://www.bom.gov.au/climate/averages/tables/cw_014015.shtml" target="_blank">http://www.bom.gov.au/climate/averages/tables/cw_014015.shtml</a></li>
-          <li>Bureau of Meteorology. (n.d.-b). Climate statistics for Australian locations: Perth Airport.<br><a href="http://www.bom.gov.au/climate/averages/tables/cw_009021.shtml" target="_blank">http://www.bom.gov.au/climate/averages/tables/cw_009021.shtml</a></li>
+          <li>Bureau of Meteorology. (n.d.-a). Climate statistics for Australian locations: Darwin Airport. Retrieved October 26, 2026, from<br><a href="https://www.bom.gov.au/climate/averages/tables/cw_014015.shtml" target="_blank">https://www.bom.gov.au/climate/averages/tables/cw_014015.shtml</a></li>
+          <li>Bureau of Meteorology. (n.d.-b). Climate statistics for Australian locations: Perth Airport. Retrieved October 26, 2026, from<br><a href="https://www.bom.gov.au/climate/averages/tables/cw_009021.shtml" target="_blank">https://www.bom.gov.au/climate/averages/tables/cw_009021.shtml</a></li>
           <li>Commonwealth of Australia. (2016). Threat abatement plan for infection of amphibians with chytrid fungus resulting in chytridiomycosis. Department of the Environment and Energy.<br><a href="https://www.dcceew.gov.au/sites/default/files/documents/tap-chytrid-fungus-2016.pdf" target="_blank">https://www.dcceew.gov.au/sites/default/files/documents/tap-chytrid-fungus-2016.pdf</a></li>
         </ul>
       </div>
@@ -273,14 +277,14 @@
           <li>New South Wales Government. (2023). Bell frogs. Environment and Heritage.<br><a href="https://environment.nsw.gov.au/topics/animals-and-plants/native-animals/native-animal-facts/amphibians/frogs/bell-frogs" target="_blank">https://environment.nsw.gov.au/topics/animals-and-plants/native-animals/native-animal-facts/amphibians/frogs/bell-frogs</a></li>
           <li>Rowley, J. J. L., & Callaghan, C. T. (2020). The FrogID dataset: expert-validated occurrence records of Australia&rsquo;s frogs collected by citizen scientists. <em>ZooKeys, 912</em>, 139&ndash;151.<br><a href="https://doi.org/10.3897/zookeys.912.38253" target="_blank">https://doi.org/10.3897/zookeys.912.38253</a></li>
           <li>Threatened Species Index. (2025). The Threatened Frog Index (2025). Terrestrial Ecosystem Research Network and The University of Queensland. Licence Creative Commons Attribution 4.0 International.<br><a href="https://tsx.org.au/visualising-the-index/the-threatened-frog-index-2025/" target="_blank">https://tsx.org.au/visualising-the-index/the-threatened-frog-index-2025/</a></li>
-          <li>Wikipedia contributors. (n.d.). Gastric-brooding frog. Wikipedia.<br><a href="https://en.wikipedia.org/wiki/Gastric-brooding_frog" target="_blank">https://en.wikipedia.org/wiki/Gastric-brooding_frog</a></li>
-          <li><strong>Design and software:</strong> Charts were made with Vega-Lite (<a href="https://vega.github.io/vega-lite/" target="_blank">https://vega.github.io/vega-lite/</a>), the layout uses Pure.css (<a href="https://purecss.io/" target="_blank">https://purecss.io/</a>), and the fonts Fraunces and Source Sans 3 come from Google Fonts (<a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a>).</li>
+          <li>Wikipedia contributors. (n.d.). Gastric-brooding frog. In Wikipedia. Retrieved October 26, 2026, from<br><a href="https://en.wikipedia.org/wiki/Gastric-brooding_frog" target="_blank">https://en.wikipedia.org/wiki/Gastric-brooding_frog</a></li>
+          <li><strong>Design and software:</strong> Charts were made with Vega-Lite (<a href="https://vega.github.io/vega-lite/" target="_blank">https://vega.github.io/vega-lite/</a>) and adapted from the unit's examples (FIT3179, n.d.), the layout uses Pure.css (<a href="https://purecss.io/" target="_blank">https://purecss.io/</a>), and the fonts Fraunces and Source Sans 3 come from Google Fonts (<a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a>).</li>
         </ul>
       </div>
     </div>
     <div class="pure-g text-columns sources notes">
       <div class="pure-u-1-2">
-        <p><strong>Notes on the data:</strong> Verreaux's Frog is left out because only one of its subspecies is listed. A species needs at least 5 records in a state.<br>A map square needs at least 50. Records of threatened frogs may be rounded to about 11 kilometres (FrogID). A frog type in several states is counted in each state.</p>
+        <p><strong>Notes on the data:</strong> Verreaux's Frog is left out because only one of its subspecies is listed. A species needs at least 5 records in a state.<br>A map square needs at least 50. Records of threatened frogs may be rounded to about 11 kilometres (Australian Museum, n.d.-c). A frog type in several states is counted in each state.</p>
         <p><strong>Data processing:</strong> The data were downloaded on 5 October 2026 and summed up with Python scripts (see the scripts folder) before they were charted.</p>
       </div>
       <div class="pure-u-1-2">
@@ -289,7 +293,7 @@
     </div>
     <div class="pure-g sources">
       <div class="pure-u-1-1">
-        <p class="author"><strong>Author:</strong> Ryoma Kano (34475184). Date: 25 October 2026.</p>
+        <p class="author"><strong>Author:</strong> Ryoma Kano (34475184). Date: 26 October 2026.</p>
       </div>
     </div>
 
