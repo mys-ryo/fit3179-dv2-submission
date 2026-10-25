@@ -1,4 +1,4 @@
-"""Build data/ala_threatened_share_bins.csv for the bin map (chart 06).
+"""Build data/ala_threatened_share_bins.csv for the bin map (chart 05).
 
 Inputs (data/raw/), all from ALA (api.ala.org.au, facet `point-0.1` = 0.1 degree cells):
   ala_threatened_listed/ala_threatened_grid_point-0.1.json   records of EPBC-listed amphibians (non-extinct, 44 species)

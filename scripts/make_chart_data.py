@@ -94,7 +94,7 @@ for state, col in state_columns.items():
         rows.append({"name": state, "status": s, "types": n, "status_rank": i})
 write("dcceew_status_by_state.csv", rows)
 
-# 7) bump chart (#13): the 10 species with the most FrogID records in 2018-2023. Only complete years are used
+# 7) bump chart (#10): the 10 species with the most FrogID records in 2018-2023. Only complete years are used
 #    (2017 and 2024 are partial). Common names come from ALA (raw/derived_from_ala_by_agent/frogid_top10_common_names.json).
 by_year = json.load(open(raw / "derived_from_ala_by_agent" / "frogid_species_by_year_2018_2023.json"))
 common = json.load(open(raw / "derived_from_ala_by_agent" / "frogid_top10_common_names.json"))
@@ -160,7 +160,7 @@ def slope_files(combine, rows_name, labels_name):
 
 slope_files(False, "frogid_state_share.csv", "frogid_state_share_labels.csv")
 
-# 9) streamgraph (#12): records per month for the 4 most recorded FrogID species (all years together)
+# 9) streamgraph (#13): records per month for the 4 most recorded FrogID species (all years together)
 by_month = json.load(open(raw / "derived_from_ala_by_agent" / "frogid_top5_species_by_month.json"))
 rows = []
 for sp_, months_ in list(by_month.items())[:4]:  # the four most recorded species (the file is sorted by records)
@@ -168,7 +168,7 @@ for sp_, months_ in list(by_month.items())[:4]:  # the four most recorded specie
         rows.append({"species": common[sp_][0], "month": m, "month_number": i, "records": months_.get(m, 0)})
 write("frogid_species_by_month.csv", rows)
 
-# 10) Gantt-style chart (#11): when does each species call more than expected?
+# 10) Gantt-style chart (#12): when does each species call more than expected?
 #     FrogID records follow when people go outside (Nov has 22% of all records), so raw counts would give almost
 #     every species the same warm-season bar. Instead each species' share of records in a month is divided by the
 #     share of ALL records in that month. An index above 1 means "recorded more in this month than the

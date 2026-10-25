@@ -18,7 +18,7 @@ Author: Ryoma Kano. Date: 26 October 2026.
 
 ## File names
 
-- Chart specifications: `js/NN_topic_idiom.vg.json`. NN is the number of the chart (the order on the page is in the table below; the rank chart, 13, is in section 4).
+- Chart specifications: `js/NN_topic_idiom.vg.json`. NN is the number of the chart, which is also its order on the page (see the table below).
 - Data files: `data/source_content.csv`. The start of the name is the source: `frogid_` (FrogID), `dcceew_` (threatened species list), `ala_` (Atlas of Living Australia), `tsx_` (Threatened Frog Index). The two label files, `cities.csv` and `state_labels.csv`, are the exceptions.
 - All names are lower case, with underscores and no spaces.
 
@@ -32,15 +32,15 @@ Author: Ryoma Kano. Date: 26 October 2026.
 | 1 | Threatened frog types by status (waffle) | `js/02_status_waffle.vg.json` |
 | 2 | Share of recorded frog species that are on the threatened list, by state (choropleth map) | `js/03_state_share_choropleth.vg.json` |
 | 2 | Listed frog types by state and status (stacked bar) | `js/04_status_by_state_stacked_bar.vg.json` |
-| 2 | Threatened share of frog records (bin map) | `js/06_threatened_share_bin_map.vg.json` |
-| 3 | Listed frogs with the most records (lollipop) | `js/05_threatened_records_lollipop.vg.json` |
+| 2 | Threatened share of frog records (bin map) | `js/05_threatened_share_bin_map.vg.json` |
+| 3 | Listed frogs with the most records (lollipop) | `js/06_threatened_records_lollipop.vg.json` |
 | 4 | FrogID records per year (line) | `js/07_records_per_year_line.vg.json` |
 | 4 | FrogID records by area (graduated symbol map) | `js/08_records_by_area_symbol_map.vg.json` |
 | 4 | Share of FrogID records by state, 2018 and 2023 (slope) | `js/09_state_share_slope.vg.json` |
-| 4 | Rank of the 10 most recorded species (bump) | `js/13_species_rank_bump.vg.json` |
-| 5 | Records by month and state (heat map) | `js/10_month_state_heat_map.vg.json` |
-| 5 | Months with more records than usual (Gantt) | `js/11_calling_season_gantt.vg.json` |
-| 5 | Records by month for four species (streamgraph) | `js/12_species_month_streamgraph.vg.json` |
+| 4 | Rank of the 10 most recorded species (bump) | `js/10_species_rank_bump.vg.json` |
+| 5 | Records by month and state (heat map) | `js/11_month_state_heat_map.vg.json` |
+| 5 | Months with more records than usual (Gantt) | `js/12_calling_season_gantt.vg.json` |
+| 5 | Records by month for four species (streamgraph) | `js/13_species_month_streamgraph.vg.json` |
 
 ## Data sources
 

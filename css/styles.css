@@ -163,7 +163,7 @@ a {
 .chart-copy p:last-child { margin-bottom: 0; }   /* so that the text is centred without the space below the last paragraph */
 .chart-visual .note { margin-left: 60px; max-width: calc(100% - 60px); }   /* as wide as the plot: about 10 words per line */
 
-/* Figure 13 (rank chart) has labels on both sides, so its figure uses the full width and its text sits below in two columns. */
+/* Figure 10 (rank chart) has labels on both sides, so its figure uses the full width and its text sits below in two columns. */
 .row-bump { flex-direction: column-reverse; }
 .row-bump .chart-visual { width: 1100px; }
 .row-bump .chart-copy { width: 100%; height: auto; padding-left: 0; margin: 32px 0 20px; flex-direction: row; justify-content: center; }   /* two columns like the opening and closing text */

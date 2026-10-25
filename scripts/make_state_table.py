@@ -14,7 +14,7 @@ Output columns:
   share_pct                100 * listed_species_recorded / species_recorded; this decides the colour on the map
 
 Note: "listed" means on the national list and recorded in the state. It is not the state's own list, and the list says nothing
-about how many records a species has. The map counts species, not records (chart 06 counts records).
+about how many records a species has. The map counts species, not records (chart 05 counts records).
 
 Rules:
   - A species counts as recorded in a state if it has at least MIN_RECORDS records there (a single record may be a mistake).
