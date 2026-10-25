@@ -2,7 +2,7 @@
 
 A one-page data story for FIT3179 Data Visualisation 2 (Monash University, Semester 2, 2026).
 It combines FrogID sightings, the national threatened species list and the Threatened Frog Index.
-Author: Ryoma Kano. Date: 22 October 2026.
+Author: Ryoma Kano. Date: 25 October 2026.
 
 ## Folders
 
@@ -82,7 +82,7 @@ The state borders were cut out of the Natural Earth file with mapshaper.org and 
 
 ## Use of AI
 
-Claude helped write the code, gave advice on how to process the data, and helped proofread and format the English text. The author chose the topic, story, charts and design, did the final checks and decided the content of the text.
+The author built the charts from the unit's Vega-Lite templates. Claude helped write and edit parts of the code, reviewed it, gave advice on how to process the data, and helped proofread and format the English text. The author chose the topic, story, charts and design, did the final checks and decided the content of the text.
 
 ## Local development
 
