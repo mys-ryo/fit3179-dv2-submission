@@ -19,6 +19,9 @@ body {
   padding: 72px 44px 80px 44px;
 }
 
+/* Pure.css sets its own sans-serif font inside the grid, so the page font is set again there. */
+.pure-g, .pure-g [class*="pure-u"] { font-family: inherit; }
+
 /* Titles and section headings: serif font and dark blue colour */
 h1, h2 {
   font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -161,7 +164,7 @@ a {
 .row-bump .chart-copy { height: 386px; }
 .chart-copy p { max-width: none; margin: 0 0 20px; }
 .chart-copy p:last-child { margin-bottom: 0; }   /* so that the text is centred without the space below the last paragraph */
-.chart-visual .note { margin-left: 60px; max-width: calc(100% - 60px); }   /* as wide as the plot: about 10 words per line */
+.chart-visual .note { margin-left: 60px; max-width: 346px; }   /* at most 10 words per line */
 
 /* Figure 10 (rank chart) has labels on both sides, so its figure uses the full width and its text sits below in two columns. */
 .row-bump { flex-direction: column-reverse; }
@@ -176,6 +179,7 @@ a {
   .chart-row { flex-direction: column-reverse; flex-wrap: wrap; }
   .chart-visual { overflow-x: auto; }
   .chart-visual .note { margin-left: 0; }
+  .chart-row .chart-copy p { max-width: 335px; }   /* the same line length as beside the chart */
 }
 
 /* Opening, closing and sources: two columns of the same width as the text beside the charts,
@@ -190,10 +194,12 @@ a {
 .text-columns .pure-u-1-2 p:last-child { margin-bottom: 0; }   /* the space before the next section line is the section's own 48px */
 .sources.text-columns ul { max-width: none; margin: 0 0 24px; }
 .sources.text-columns li, .sources.text-columns p { max-width: none; margin-left: 0; }
-.sources.text-columns .pure-u-1-2 { padding-right: 24px; }   /* 15px text: at most 10 words per line */
+.sources.text-columns .pure-u-1-2 { padding-right: 56px; }   /* 15px text: at most 10 words per line */
 .sources a { overflow-wrap: anywhere; }
 @media (max-width: 900px) {
-  .text-columns .pure-u-1-2 { width: 100%; margin-right: 0; }
+  .text-columns { flex-direction: column; align-items: flex-start; }
+  .text-columns .pure-u-1-2,
+  .text-columns .pure-u-1-2:first-child { width: 100%; max-width: 360px; margin-right: 0; }
 }
 /* A thin line sets the notes (data, processing, AI) apart from the list of sources. */
 .sources.text-columns.notes { width: 776px; max-width: 100%; margin: 8px auto 0; border-top: 1px solid #9aa7b5; padding-top: 32px; }   /* as wide as the two columns above */
