@@ -81,8 +81,8 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "dx": 12,
-        "dy": 6,
+        "dx": -12,
+        "dy": 14,
         "fontSize": 14,
         "fontWeight": "normal",
         "lineHeight": 18,
@@ -114,10 +114,10 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dy": 3,
+        "dy": -4,
         "fontSize": 13,
         "color": "#3e4a56",
-        "dx": 16
+        "dx": 20
       },
       "encoding": {
         "text": {
