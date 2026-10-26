@@ -66,7 +66,7 @@ The raw downloads are not in this repository (they are large). They were summed 
 | `make_state_table.py` | `data/ala_listed_share_by_state.csv` (frog species recorded per state, and how many are on the threatened list) |
 | `make_bin_grid.py` | `data/ala_threatened_share_bins.csv` (100 km x 100 km squares for the bin map) |
 | `make_map2_data.py` | `data/frogid_records_by_area.csv` (circles for the graduated symbol map) |
-| `make_chart_data.py` | The other chart data files in `data/` (all except the two label files, `cities.csv` and `state_labels.csv`) |
+| `make_chart_data.py` | The other chart data files (not `cities.csv` or `state_labels.csv`) |
 
 The scripts are published so that every number in `data/` can be traced back. They read the raw downloads from `data/raw/`, which is not part of this repository, so they cannot be run without downloading those files again (see the sources above and the data snapshot below). Each script starts with a short description of its input files and the rules it applies (for example, the minimum number of records). Run a script from the project root with `python3 scripts/<name>.py` (Python 3, standard library only).
 
@@ -74,7 +74,7 @@ The state borders were cut out of the Natural Earth file with mapshaper.org and 
 
 ### Data snapshot and how the Atlas of Living Australia (ALA) data were collected
 
-- **The data are a snapshot of 5 October 2026** (DCCEEW list of 28 August 2026, Threatened Frog Index 2025, FrogID dataset 7.0). They were not refreshed afterwards. ALA is updated all the time, so a new download may differ slightly (in our check on 7 October, the all-contributor total was slightly higher).
+- **The data are a snapshot of 5 October 2026** (DCCEEW list of 28 August 2026, Threatened Frog Index 2025, FrogID dataset 7.0). They were not refreshed afterwards. ALA is updated all the time, so a new download may differ slightly.
 - The ALA numbers were collected from the ALA occurrence API (`https://api.ala.org.au/occurrences/occurrences/facets`) with these filters:
   - FrogID: `fq=data_resource_uid:dr14760`, together with `facets=year`, `month`, `stateProvince`, `species` or the 0.1 degree grid `point-0.1`; for the tables by state, month or species, one more `fq` such as `stateProvince:"<state>"`, `year:<year>` or `species:"<name>"` was added.
   - All Australian frogs (all contributors): `fq=class:Amphibia` and `fq=country:Australia`, with `facets=species`, `stateProvince` or `point-0.1`.
