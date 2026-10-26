@@ -189,14 +189,14 @@
       ]
     },
     {
-      "description": "Annotation: large parts of the country have no FrogID records (Australian Museum, Explore, summer 2024: 'large tracts of the country with no frog records, but we know frogs are there')",
+      "description": "Annotation: large parts of the country have few or no FrogID records (Australian Museum, Explore, summer 2024: 'large tracts of the country with no frog records, but we know frogs are there')",
       "data": {
         "values": [
           {
             "note": [
               "Large parts of",
-              "the country still",
-              "have no FrogID",
+              "the country have few",
+              "or no FrogID",
               "records, but frogs",
               "live there."
             ]
