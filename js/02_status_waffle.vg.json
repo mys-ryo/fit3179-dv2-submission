@@ -47,6 +47,7 @@
             ]
           },
           "legend": {
+            "symbolSize": 196,
             "orient": "none",
             "titleLimit": 300,
             "direction": "horizontal",
@@ -141,12 +142,13 @@
   },
   "title": {
     "text": "Listed frog types by conservation status",
-    "anchor": "middle",
-    "frame": "group",
-    "fontSize": 16,
+    "anchor": "start",
+    "frame": "bounds",
+    "dx": 13,
+    "fontSize": 18,
     "fontWeight": "bold",
     "color": "#0f3d75",
-    "offset": 14,
+    "offset": 20,
     "orient": "top"
   }
 }

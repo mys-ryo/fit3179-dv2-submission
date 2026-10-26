@@ -79,7 +79,7 @@
             "orient": "none",
             "direction": "horizontal",
             "symbolType": "square",
-            "symbolSize": 260,
+            "symbolSize": 196,
             "titleLimit": 300,
             "legendX": 0,
             "legendY": 368
@@ -421,7 +421,7 @@
         "align": "left",
         "baseline": "top",
         "fontSize": 14,
-        "lineHeight": 16,
+        "lineHeight": 18,
         "color": "#1f2933"
       },
       "encoding": {
@@ -444,12 +444,12 @@
   ],
   "title": {
     "text": "Share of recorded frog species that are listed, by state",
-    "anchor": "middle",
-    "frame": "group",
-    "fontSize": 16,
+    "anchor": "start",
+    "frame": "bounds",
+    "fontSize": 18,
     "fontWeight": "bold",
     "color": "#0f3d75",
-    "offset": 14,
+    "offset": 20,
     "orient": "top"
   },
   "view": {

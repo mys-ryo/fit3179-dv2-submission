@@ -98,11 +98,12 @@
         ],
         "range": [
           "#9a6b3f",
-          "#b5206b",
+          "#8e1b6b",
           "#bdbdbd"
         ]
       },
       "legend": {
+        "symbolSize": 196,
         "orient": "none",
         "direction": "horizontal",
         "titleLimit": 300,
@@ -322,12 +323,12 @@
   },
   "title": {
     "text": "Rank of the ten most recorded frogs, 2018 to 2023",
-    "anchor": "middle",
-    "frame": "group",
-    "fontSize": 16,
+    "anchor": "start",
+    "frame": "bounds",
+    "fontSize": 18,
     "fontWeight": "bold",
     "color": "#0f3d75",
-    "offset": 14,
+    "offset": 20,
     "orient": "top"
   }
 }

@@ -85,7 +85,7 @@
         "color": {
           "field": "status",
           "type": "nominal",
-          "title": "Conservation status",
+          "title": "Conservation status (extinction risk)",
           "scale": {
             "domain": [
               "Critically Endangered",
@@ -99,6 +99,8 @@
             ]
           },
           "legend": {
+            "titleLimit": 300,
+            "symbolSize": 196,
             "orient": "none",
             "direction": "horizontal",
             "legendX": -170,
@@ -166,8 +168,8 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": 0,
-        "dy": 0,
+        "dx": 55,
+        "dy": -20,
         "fontSize": 14,
         "fontWeight": "normal",
         "lineHeight": 18,
@@ -211,12 +213,12 @@
   },
   "title": {
     "text": "Listed frogs with the most records",
-    "anchor": "middle",
-    "frame": "group",
-    "fontSize": 16,
+    "anchor": "start",
+    "frame": "bounds",
+    "fontSize": 18,
     "fontWeight": "bold",
     "color": "#0f3d75",
-    "offset": 14,
+    "offset": 20,
     "orient": "top"
   }
 }

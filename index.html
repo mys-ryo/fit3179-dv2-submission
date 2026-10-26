@@ -15,10 +15,10 @@
   <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
     integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
 
-  <!-- Google fonts: Fraunces for headings, Source Sans 3 for text -->
+  <!-- Google font: Fraunces for headings (the text and the charts use the system sans-serif font) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap"
     rel="stylesheet">
 
   <!-- CSS file -->
@@ -40,7 +40,7 @@
         <p>Frogs live in rainforests and wetlands all over the world, including Malaysia, where many of us hear them after the rain. Many frogs need both water and land, so they react quickly when their home changes. That is one reason scientists watch frogs closely.</p>
       </div>
       <div class="pure-u-1-2">
-        <p>This page looks at <strong>Australia</strong>, where records of frogs and a national list of threatened frogs are both open to the public. Do the records show that frogs are doing well, or is the picture more fragile?</p>
+        <p>This page looks at Australia, where records of frogs and a national list of threatened frogs are both open to the public. Do the records show that frogs are doing well, or is the picture more fragile?</p>
       </div>
     </div>
 
@@ -53,7 +53,7 @@
       </div>
       <div class="pure-g figure chart-row layout-a row-tsx">
         <div class="pure-u-1-3 chart-copy">
-          <p>Scientists follow <strong>28 types of</strong> threatened or near-threatened <strong>frogs</strong>, mostly in eastern Australia.</p>
+          <p>Scientists follow <strong>28 types</strong> of threatened or near-threatened frogs, mostly in eastern Australia.</p>
           <p>Between 1985 and 2022, their numbers <strong>fell by about 97%</strong>, on average.</p>
         </div>
         <div class="pure-u-2-3 chart-visual">
@@ -69,7 +69,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Waffle chart: one square per listed frog type, by status (js/02_status_waffle.vg.json) -->
           <div id="waffle" class="vis"></div>
-          <p class="note">Click a status in the legend to highlight it.<br>Source: Department of Climate Change, Energy, the Environment and Water (2026); Wikipedia contributors (n.d.).</p>
+          <p class="note">The first three statuses are levels of extinction risk, from highest to lowest.<br>Click a status in the legend to highlight it.<br>Source: Department of Climate Change, Energy, the Environment and Water (2026); Wikipedia contributors (n.d.).</p>
         </div>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Bin map: threatened share of frog records in 100 km squares (js/05_threatened_share_bin_map.vg.json) -->
           <div id="binmap" class="vis"></div>
-          <p class="note">Each square is 100 by 100 kilometres.<br>Shares count records, not species.<br>Source: Atlas of Living Australia (n.d.); Department of Climate Change, Energy, the Environment and Water (2026); Natural Earth (n.d.).</p>
+          <p class="note">Each square is 100 by 100 kilometres.<br>Shares count records, not species.<br>Beige areas have fewer than 50 records.<br>Source: Atlas of Living Australia (n.d.); Department of Climate Change, Energy, the Environment and Water (2026); Natural Earth (n.d.).</p>
         </div>
       </div>
     </div>
@@ -140,12 +140,12 @@
     <div class="section">
       <div class="pure-g">
         <div class="pure-u-1-1">
-          <h2>Can sightings tell us the story?</h2>
+          <h2>Can records tell us the story?</h2>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-year">
         <div class="pure-u-1-3 chart-copy">
-          <p>FrogID is a phone app made by the Australian Museum. Since 2017 it has collected <strong>more than a million records</strong>, but <strong>more records do not always mean more frogs</strong>: more people can take part.</p>
+          <p>FrogID is a phone app made by the Australian Museum. Since 2017 it has collected <strong>more than a million records</strong>, but <strong>more records do not always mean more frogs</strong>: records also rise when more people use the app.</p>
         </div>
         <div class="pure-u-2-3 chart-visual">
           <!-- Line chart: FrogID records per year (js/07_records_per_year_line.vg.json) -->
@@ -161,7 +161,7 @@
         <div class="pure-u-2-3 chart-visual">
           <!-- Graduated symbol map: FrogID records by area (js/08_records_by_area_symbol_map.vg.json) -->
           <div id="symbolmap" class="vis"></div>
-          <p class="note">Each circle covers an area about 300 kilometres across.<br>Source: Australian Museum (n.d.-c, 2024); Natural Earth (n.d.).</p>
+          <p class="note">Each circle covers an area about 300 kilometres across.<br>Areas with fewer than 1,000 records have no circle.<br>Source: Australian Museum (n.d.-c, 2024); Natural Earth (n.d.).</p>
         </div>
       </div>
       <div class="pure-g figure chart-row layout-a row-slope">
@@ -177,7 +177,7 @@
       </div>
       <div class="pure-g figure chart-row layout-a row-bump">
         <div class="pure-u-1-3 chart-copy">
-          <p>The ranking of the most recorded frogs barely changed. The Common Eastern Froglet was <strong>first in all six years</strong>, while <strong>Verreaux's Frog</strong> rose from last of the ten to sixth in 2023.</p>
+          <p>The ranking of the most recorded frogs barely changed. The Common Eastern Froglet was <strong>first in all six years</strong>, while Verreaux's Frog rose from last of the ten to sixth in 2023.</p>
           <p>A rank shows how often a frog is recorded compared with other frogs, not how many frogs there are.</p>
         </div>
         <div class="pure-u-2-3 chart-visual">
@@ -239,11 +239,11 @@
       </div>
       <div class="pure-g text-columns">
         <div class="pure-u-1-2">
-          <p>Are Australia's frogs disappearing? <strong>For the threatened frogs that scientists follow, the answer is yes: their numbers have fallen sharply.</strong> For frogs in general, records alone cannot tell us.</p>
-          <p>Listed frogs are not spread evenly. <strong>Their records are concentrated in the south-east</strong>, and two species make up most of them.</p>
+          <p>Are Australia's frogs disappearing? For the threatened frogs that scientists follow, <strong>the answer is yes</strong>: their numbers have fallen sharply. For frogs in general, records alone cannot tell us.</p>
+          <p>Listed frogs are not spread evenly. Their records are <strong>concentrated in the south-east</strong>, and two species make up most of them.</p>
         </div>
         <div class="pure-u-1-2">
-          <p>Sightings are useful, but they <strong>reflect both the frogs and where and when people record</strong>. <strong>Counting frogs carefully</strong>, as the Threatened Frog Index does, is what shows the decline.</p>
+          <p>Records are useful, but they reflect both the frogs and <strong>where and when people record</strong>. Counting frogs carefully, as the Threatened Frog Index does, <strong>is what shows the decline</strong>.</p>
           <p>This is worth remembering in Malaysia too: records from many people are valuable, but their number alone does not show whether frogs are doing well.</p>
         </div>
       </div>
@@ -278,7 +278,7 @@
           <li>Rowley, J. J. L., & Callaghan, C. T. (2020). The FrogID dataset: expert-validated occurrence records of Australia&rsquo;s frogs collected by citizen scientists. ZooKeys, 912, 139&ndash;151.<br><a href="https://doi.org/10.3897/zookeys.912.38253" target="_blank">https://doi.org/10.3897/zookeys.912.38253</a></li>
           <li>Threatened Species Index. (2025). The Threatened Frog Index (2025). Terrestrial Ecosystem Research Network and The University of Queensland. Licence Creative Commons Attribution 4.0 International.<br><a href="https://tsx.org.au/visualising-the-index/the-threatened-frog-index-2025/" target="_blank">https://tsx.org.au/visualising-the-index/the-threatened-frog-index-2025/</a></li>
           <li>Wikipedia contributors. (n.d.). Gastric-brooding frog. In Wikipedia. Retrieved October 26, 2026, from<br><a href="https://en.wikipedia.org/wiki/Gastric-brooding_frog" target="_blank">https://en.wikipedia.org/wiki/Gastric-brooding_frog</a></li>
-          <li><strong>Design and software:</strong> Charts were made with Vega-Lite (<a href="https://vega.github.io/vega-lite/" target="_blank">https://vega.github.io/vega-lite/</a>) and adapted from the unit's examples (FIT3179, n.d.), the layout uses Pure.css (<a href="https://purecss.io/" target="_blank">https://purecss.io/</a>), and the fonts Fraunces and Source Sans 3 come from Google Fonts (<a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a>).</li>
+          <li><strong>Design and software:</strong> Charts were made with Vega-Lite (<a href="https://vega.github.io/vega-lite/" target="_blank">https://vega.github.io/vega-lite/</a>) and adapted from the unit's examples (FIT3179, n.d.), the layout uses Pure.css (<a href="https://purecss.io/" target="_blank">https://purecss.io/</a>), and the heading font Fraunces comes from Google Fonts (<a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a>).</li>
         </ul>
       </div>
     </div>

@@ -66,7 +66,7 @@
       "mark": {
         "type": "rect",
         "stroke": "white",
-        "strokeWidth": 1.5
+        "strokeWidth": 1.8
       },
       "encoding": {
         "color": {
@@ -82,18 +82,18 @@
               "15% or more"
             ],
             "range": [
-              "#9cc7fa",
-              "#4ba9f7",
-              "#2381c4",
-              "#0b4a74",
-              "#00152d"
+              "#c2dbf7",
+              "#88b5ee",
+              "#4a88dc",
+              "#1f4ea4",
+              "#0a1d47"
             ]
           },
           "legend": {
             "orient": "none",
             "direction": "horizontal",
             "symbolType": "square",
-            "symbolSize": 260,
+            "symbolSize": 196,
             "titleLimit": 300,
             "legendX": -163,
             "legendY": 312
@@ -190,12 +190,12 @@
   },
   "title": {
     "text": "Share of each state's FrogID records, by month",
-    "anchor": "middle",
-    "frame": "group",
-    "fontSize": 16,
+    "anchor": "start",
+    "frame": "bounds",
+    "fontSize": 18,
     "fontWeight": "bold",
     "color": "#0f3d75",
-    "offset": 14,
+    "offset": 20,
     "orient": "top"
   }
 }

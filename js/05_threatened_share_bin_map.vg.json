@@ -51,7 +51,7 @@
       "mark": {
         "type": "rect",
         "stroke": "white",
-        "strokeWidth": 0.2
+        "strokeWidth": 0.3
       },
       "encoding": {
         "longitude": {
@@ -80,17 +80,17 @@
               "20% or more"
             ],
             "range": [
-              "#8cccd1",
-              "#349fa7",
-              "#006b73",
-              "#00343b"
+              "#8ed2d8",
+              "#3aa7b0",
+              "#065e6e",
+              "#052a37"
             ]
           },
           "legend": {
             "orient": "none",
             "direction": "horizontal",
             "symbolType": "square",
-            "symbolSize": 260,
+            "symbolSize": 196,
             "titleLimit": 300,
             "legendX": 0,
             "legendY": 355
@@ -285,15 +285,15 @@
         "align": "left",
         "baseline": "top",
         "fontSize": 14,
-        "lineHeight": 16,
+        "lineHeight": 18,
         "color": "#1f2933"
       },
       "encoding": {
         "x": {
-          "value": 12
+          "value": 480
         },
         "y": {
-          "value": 240
+          "value": 294
         },
         "text": {
           "field": "note",
@@ -315,12 +315,12 @@
   },
   "title": {
     "text": "Listed frogs' share of frog records, by 100 kilometre square",
-    "anchor": "middle",
-    "frame": "group",
-    "fontSize": 16,
+    "anchor": "start",
+    "frame": "bounds",
+    "fontSize": 18,
     "fontWeight": "bold",
     "color": "#0f3d75",
-    "offset": 14,
+    "offset": 20,
     "orient": "top"
   },
   "view": {

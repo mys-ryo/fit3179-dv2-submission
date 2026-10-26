@@ -59,7 +59,7 @@
         "color": {
           "field": "status",
           "type": "nominal",
-          "title": "Conservation status",
+          "title": "Conservation status (extinction risk)",
           "scale": {
             "domain": [
               "Critically Endangered",
@@ -75,6 +75,8 @@
             ]
           },
           "legend": {
+            "titleLimit": 300,
+            "symbolSize": 196,
             "orient": "none",
             "direction": "horizontal",
             "legendX": -160,
@@ -130,7 +132,7 @@
         "values": [
           {
             "name": "Australian Capital Territory",
-            "types": 12.5,
+            "types": 14,
             "note": [
               "Queensland's four extinct frogs were last",
               "seen between 1979 and 1997. Chytrid fungus",
@@ -144,7 +146,7 @@
         "align": "left",
         "baseline": "middle",
         "dx": 0,
-        "dy": 0,
+        "dy": -18,
         "fontSize": 14,
         "fontWeight": "normal",
         "lineHeight": 18,
@@ -185,12 +187,12 @@
   },
   "title": {
     "text": "Listed frog types by state and conservation status",
-    "anchor": "middle",
-    "frame": "group",
-    "fontSize": 16,
+    "anchor": "start",
+    "frame": "bounds",
+    "fontSize": 18,
     "fontWeight": "bold",
     "color": "#0f3d75",
-    "offset": 14,
+    "offset": 20,
     "orient": "top"
   }
 }

@@ -4,8 +4,8 @@
 body {
   background-color: #e4ebf3;
   color: #1f2933;
-  font-family: 'Source Sans 3', Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-family: sans-serif;   /* the same font as inside the charts */
+  font-size: 20px;
   line-height: 1.6;
   margin: 0;
 }
@@ -19,7 +19,7 @@ body {
   padding: 72px 44px 80px 44px;
 }
 
-/* Pure.css sets its own sans-serif font inside the grid, so the page font is set again there. */
+/* Pure.css sets its own font inside the grid; the grid text uses the page font, the same as in the charts. */
 .pure-g, .pure-g [class*="pure-u"] { font-family: inherit; }
 
 /* Titles and section headings: serif font and dark blue colour */
@@ -65,8 +65,8 @@ p {
 
 /* Subtitle under the page title */
 .subtitle {
-  font-size: 22px;
-  color: #3e4a56;
+  font-size: 26px;
+  color: #1f2933;
   margin: 12px auto 32px auto;
   max-width: 690px;   /* wide enough for each of the two sentences to stay on one line */
   text-align: center;
@@ -109,7 +109,7 @@ strong {
 
 /* Data sources list at the bottom */
 .sources li, .sources p {
-  font-size: 15px;
+  font-size: 17px;
   max-width: 52ch;
 }
 
@@ -121,7 +121,7 @@ strong {
 }
 
 .sources li {
-  margin-bottom: 8px;
+  margin-bottom: 18px;   /* space between the entries of the list */
 }
 
 .sources p {
@@ -149,18 +149,18 @@ a {
   margin-bottom: -120px;   /* the box may be taller than the chart; it must not make the row taller */
 }
 /* The text is centred on the plot of its chart: the box is twice the distance from the top of the chart to the middle of the plot. */
-.row-tsx .chart-copy { height: 344px; }
-.row-waffle .chart-copy { height: 330px; }
-.row-choropleth .chart-copy { height: 404px; }
-.row-status .chart-copy { height: 386px; }
-.row-lollipop .chart-copy { height: 386px; }
-.row-binmap .chart-copy { height: 402px; }
-.row-year .chart-copy { height: 330px; }
-.row-symbolmap .chart-copy { height: 404px; }
-.row-slope .chart-copy { height: 376px; }
-.row-heat .chart-copy { height: 514px; }
-.row-gantt .chart-copy { height: 510px; }
-.row-stream .chart-copy { height: 498px; }
+.row-tsx .chart-copy { height: 360px; }
+.row-waffle .chart-copy { height: 346px; }
+.row-choropleth .chart-copy { height: 420px; }
+.row-status .chart-copy { height: 402px; }
+.row-lollipop .chart-copy { height: 402px; }
+.row-binmap .chart-copy { height: 418px; }
+.row-year .chart-copy { height: 346px; }
+.row-symbolmap .chart-copy { height: 420px; }
+.row-slope .chart-copy { height: 392px; }
+.row-heat .chart-copy { height: 530px; }
+.row-gantt .chart-copy { height: 526px; }
+.row-stream .chart-copy { height: 514px; }
 .row-bump .chart-copy { height: 386px; }
 .chart-copy p { max-width: none; margin: 0 0 20px; }
 .chart-copy p:last-child { margin-bottom: 0; }   /* so that the text is centred without the space below the last paragraph */
@@ -174,12 +174,14 @@ a {
 .row-bump .chart-copy p:first-child { margin-right: 56px; }
 
 @media (max-width: 1130px) {
-  .chart-row .chart-copy, .chart-row .chart-visual { width: 100%; margin-left: 0; }
+  .chart-row .chart-copy { width: 100%; margin-left: 0; }
+  .chart-row .chart-visual { width: calc(100% + 60px); margin-left: -60px; }   /* the 60px side space of the chart sticks out, so that the drawing starts at the text edge */
   .chart-row .chart-copy { padding-left: 0; height: auto; margin-bottom: 20px; }
   .chart-row { flex-direction: column-reverse; flex-wrap: wrap; }
   .chart-visual { overflow-x: auto; }
-  .chart-visual .note { margin-left: 0; }
+  .chart-visual .note { margin-left: 60px; }
   .chart-row .chart-copy p { max-width: 335px; }   /* the same line length as beside the chart */
+  .row-bump .chart-copy p { max-width: 360px; }   /* the two columns under the rank chart keep the width of the opening text */
 }
 
 /* Opening, closing and sources: two columns of the same width as the text beside the charts,
@@ -200,10 +202,15 @@ a {
   .text-columns { flex-direction: column; align-items: flex-start; }
   .text-columns .pure-u-1-2,
   .text-columns .pure-u-1-2:first-child { width: 100%; max-width: 360px; margin-right: 0; }
+  .row-bump .chart-copy { flex-direction: column; align-items: flex-start; }
+  .row-bump .chart-copy p:first-child { margin-right: 0; margin-bottom: 20px; }
 }
 /* A thin line sets the notes (data, processing, AI) apart from the list of sources. */
 .sources.text-columns.notes { width: 776px; max-width: 100%; margin: 8px auto 0; border-top: 1px solid #9aa7b5; padding-top: 32px; }   /* as wide as the two columns above */
-.sources .author { max-width: none; margin: 56px 0 0; text-align: center; }
+@media (max-width: 900px) {
+  .sources.text-columns.notes { width: 100%; margin-left: 0; margin-right: 0; }   /* the same left edge as the text above */
+}
+.sources .author { max-width: none; margin: 56px 0 0; text-align: center; font-size: 20px; }
 
 /* Printing: no scroll bars inside the figures */
 @media print {

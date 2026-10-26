@@ -62,6 +62,7 @@
             ]
           },
           "legend": {
+            "symbolSize": 196,
             "orient": "none",
             "direction": "horizontal",
             "titleLimit": 300,
@@ -267,12 +268,12 @@
   },
   "title": {
     "text": "Share of all FrogID records, by state, 2018 and 2023",
-    "anchor": "middle",
-    "frame": "group",
-    "fontSize": 16,
+    "anchor": "start",
+    "frame": "bounds",
+    "fontSize": 18,
     "fontWeight": "bold",
     "color": "#0f3d75",
-    "offset": 14,
+    "offset": 20,
     "orient": "top"
   }
 }

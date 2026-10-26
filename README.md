@@ -1,7 +1,7 @@
 # Are Australia's Frogs Disappearing?
 
 A one-page data story for FIT3179 Data Visualisation 2 (Monash University, Semester 2, 2026).
-It combines FrogID sightings, the national threatened species list and the Threatened Frog Index.
+It combines FrogID records, the national threatened species list and the Threatened Frog Index.
 Author: Ryoma Kano. Date: 26 October 2026.
 
 ## Folders
